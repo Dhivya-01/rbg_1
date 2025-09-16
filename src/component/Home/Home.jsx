@@ -7,7 +7,7 @@ import { HomeContext } from "../Context/Context";
 import { motion } from "framer-motion";
 import "aos/dist/aos.css";
 import AOS from "aos";
-import Hero from "../../components/hero-section-9"
+// import Hero from "../../components/hero-section-9"
 import  EmptyStateShowcase   from "./Content"
 import Demo from "./Demo"
 import Carouselflow from "./Caurosal"
@@ -24,7 +24,11 @@ import Pricing from "./Pricing"
 import FAQ from "./FAQ"
 import Timelinedemo from "./Timeline"
 import Testimonials from  "./ScrollCard"
-
+import Progress from "./Progress"
+import HeroSection_05 from "@/components/ui/hero-section-with-gradient";
+import Land from "./Land"
+import Hero from "./header"
+   import { CTASection } from "@/components/blocks/cta-with-rectangle"
 export default function Home() {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -56,18 +60,58 @@ export default function Home() {
     <>
       <motion.div initial="hidden" animate="visible" variants={fadeIn}>
         {/* <Header data={data} /> */}
-           <Carouselflow/>
+     {/* <Land/> */}
+         {/* <HeroSection
+      title="Welcome to Our Platform"
+      subtitle={{
+        regular: "Transform your ideas into ",
+        gradient: "beautiful digital experiences",
+      }}
+      description="Transform your ideas into reality with our comprehensive suite of development tools and resources."
+      ctaText="Get Started"
+      ctaHref="/signup"
+      bottomImage={{
+        light: "https://www.launchuicomponents.com/app-light.png",
+        dark: "https://www.launchuicomponents.com/app-dark.png",
+      }}
+      gridOptions={{
+        angle: 65,
+        opacity: 0.4,
+        cellSize: 50,
+        lightLineColor: "#4a4a4a",
+        darkLineColor: "#2a2a2a",
+      }}
+    /> */}
+    <Hero/>
+     {/* <HeroSection_05 /> */}
+   
+          
+            <CTASection
+      badge={{
+        text: "Get started"
+      }}
+      title="Unleash MLloOps™"
+      description="Confidence-Driven Automation Starts Here"
+      action={{
+        text: "Start here",
+        href: "/docs",
+        variant: "default"
+      }}
+    />
+ <Carouselflow/>
+            <Testimonials/>
+            {/* <Progress/> */}
         {/* <Hero/> */}
-        <Features/>
+        {/* <Features/> */}
         {/* <Details/> */}
          <Timelinedemo/>
-          <Testimonials/>
+         
         <Proof/>
         <Pricing/>
-        <FAQ/>
+        {/* <FAQ/> */}
         {/* <EmptyStateShowcase/> */}
         
-        <Demo/>
+        {/* <Demo/> */}
      
       </motion.div>
 
@@ -75,8 +119,8 @@ export default function Home() {
         <Slider />
       </div> */}
 {/* <Flow/> */}
-<Circular/>
-<BentoGrid1 />
+{/* <Circular/> */}
+{/* <BentoGrid1 /> */}
 {/* <Achievements/> */}
 {/* <Work/> */}
 {/* <Process/> */}

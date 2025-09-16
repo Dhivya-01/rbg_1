@@ -3,7 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @keyframes scroll {
     0% {
       transform: translateX(0);
@@ -12,21 +11,17 @@
       transform: translateX(-50%);
     }
   }
-  
+
   .animate-scroll {
     animation: scroll 20s linear infinite;
   }
 
-
-
- 
-  
   .cursor-container {
     pointer-events: none;
     position: fixed;
     z-index: 9999;
   }
-  
+
   .cursor-outer {
     position: fixed;
     width: 20px;
@@ -38,7 +33,7 @@
     mix-blend-mode: difference;
     backdrop-filter: invert(0.5);
   }
-  
+
   .cursor-inner {
     position: fixed;
     width: 20px;
@@ -51,7 +46,7 @@
     justify-content: center;
     align-items: center;
   }
-  
+
   .cursor-dot {
     width: 4px;
     height: 4px;
@@ -59,20 +54,20 @@
     border-radius: 50%;
     box-shadow: 0 0 10px rgba(0, 119, 255, 0.8);
   }
-  
+
   /* Animation for when clicking */
   .cursor-outer.clicking {
     width: 32px;
     height: 32px;
     border-color: rgba(23, 235, 166, 0.8);
   }
-  
+
   .cursor-inner.clicking {
     width: 14px;
     height: 14px;
     background: rgba(23, 235, 166, 0.5);
   }
-  
+
   /* Add some glow effects on hover over interactive elements */
   a:hover ~ .cursor-container .cursor-outer,
   button:hover ~ .cursor-container .cursor-outer {
@@ -80,12 +75,11 @@
     width: 46px;
     height: 46px;
   }
-  
+
   a:hover ~ .cursor-container .cursor-inner,
   button:hover ~ .cursor-container .cursor-inner {
     background: rgba(23, 235, 166, 0.5);
   }
-
 
   .gradient-bg {
   background: linear-gradient(270deg, #7f00ff, #e100ff, #00dbde, #fc00ff);
@@ -98,8 +92,6 @@
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-
-
 
 @layer base {
   :root {
@@ -128,6 +120,10 @@
         --chart-4: 43 74% 66%;
         --chart-5: 27 87% 67%;
         --radius: 0.5rem;
+        --brand: 27 96% 61%;
+        /* --brand-foreground: 31 97% 72%; */
+        --brand-foreground: 0 97% 70%;
+
     }
   .dark {
         --background: 240 10% 3.9%;
@@ -154,10 +150,16 @@
         --chart-3: 30 80% 55%;
         --chart-4: 280 65% 60%;
         --chart-5: 340 75% 55%;
+        --brand: 31 97% 72%;
+    }
+  .theme {
+        --animate-fade-in-up: fade-in-up 0.5s ease-out forwards;
+        --animate-fade-in: fade-in 0.5s ease-out forwards;
+        --animate-scale-in: scale-in 0.5s ease-out forwards;
+        --animate-accordion-down: accordion-down 0.2s ease-out;
+        --animate-accordion-up: accordion-up 0.2s ease-out;
     }
 }
-
-
 
 @layer base {
   * {
@@ -165,5 +167,52 @@
     }
   body {
     @apply bg-background text-foreground;
+    }
+}
+
+@theme inline {
+  @keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+        }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+        }
+    }
+  @keyframes fade-in {
+  0% {
+    opacity: 0;
+        }
+  100% {
+    opacity: 1;
+        }
+    }
+  @keyframes scale-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+        }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+        }
+    }
+  @keyframes accordion-down {
+  from {
+    height: 0;
+        }
+  to {
+    height: var(--radix-accordion-content-height);
+        }
+    }
+  @keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+        }
+  to {
+    height: 0;
+        }
     }
 }

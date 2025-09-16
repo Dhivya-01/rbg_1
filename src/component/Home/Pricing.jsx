@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 
+import { cn } from "@/lib/utils";
+
 export function Pricing() {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState('enterprise');
@@ -9,50 +11,50 @@ export function Pricing() {
   const accessTiers = [
     {
       id: 'startup',
-      name: "Startup Access",
-      description: "For early-stage teams building their first ML products",
+      name: "Starter Plan",
+      description: "Ideal for small teams exploring AI workflows.",
       badge: "Limited Spots",
       features: [
-        "Core ML pipeline tools",
+        "Essential MLloOps™ tools",
         "Basic monitoring dashboard", 
-        "Community support",
+        "Community-driven support",
         "Standard integrations",
-        "Up to 3 team members"
+        "Access for up to 3 team members"
       ],
-      cta: "Request Startup Access"
+      cta: "Get Started"
     },
     {
       id: 'enterprise',
-      name: "Enterprise Access", 
-      description: "For established teams requiring enterprise-grade capabilities",
+      name: "Professional Plan", 
+      description: "Designed for growing teams that need advanced capabilities.",
       badge: "Most Popular",
       popular: true,
       features: [
-        "Full platform access",
-        "Advanced monitoring & alerts",
+        "Full MLloOps™ platform access",
+        "Enhanced monitoring &amp; alerts",
         "Priority support",
-        "Custom integrations", 
+        "Flexible integrations", 
         "Unlimited team members",
         "Dedicated success manager",
-        "Custom SLAs"
+        "Service-level agreements (SLAs)"
       ],
-      cta: "Request Enterprise Access"
+      cta: "Upgrade to Pro"
     },
     {
       id: 'custom',
-      name: "Custom Solution",
-      description: "Tailored platform solutions for unique requirements", 
+      name: "Enterprise Plan",
+      description: "Tailored for organizations with complex or regulated needs.", 
       badge: "White Glove",
       features: [
-        "Fully customized platform",
-        "On-premise deployment",
-        "Custom security controls",
+        "Fully customizable MLloOps™ platform",
+        "Deployment on cloud or on-premise",
+        "Enterprise-grade security &amp; compliance",
         "Dedicated infrastructure",
-        "24/7 dedicated support",
+        "24/7 premium support",
         "Custom feature development",
-        "Training & onboarding"
+        "TEnd-to-end training &amp; onboarding"
       ],
-      cta: "Discuss Requirements"
+      cta: "Contact Us"
     }
   ];
 
@@ -74,7 +76,7 @@ export function Pricing() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 bg-white relative overflow-hidden">
+    <section ref={sectionRef} className="py-20 bg-white  overflow-hidden">
       
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -93,7 +95,7 @@ export function Pricing() {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             Request Platform
-            <span className="block bg-gradient-to-r from-rose-500 to-rose-600 bg-clip-text text-transparent">
+            <span className="block bg-[#e63946] bg-clip-text text-transparent">
               Access
             </span>
           </h2>
@@ -108,24 +110,21 @@ export function Pricing() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
           {accessTiers.map((tier, idx) => (
             <div
-              key={tier.id}
-              className={`relative bg-white/80 backdrop-blur-md rounded-3xl border-2 transition-all duration-700 hover:-translate-y-4 hover:shadow-2xl cursor-pointer ${
-                tier.popular 
-                  ? 'border-rose-200 shadow-2xl scale-105' 
-                  : 'border-rose-100/50 hover:border-rose-200'
-              } ${selectedPlan === tier.id ? 'ring-2 ring-rose-400' : ''} ${
-                isVisible 
-                  ? 'animate-fade-in-up opacity-100' 
-                  : 'opacity-0 translate-y-10'
-              }`}
-              style={{ animationDelay: `${600 + idx * 200}ms` }}
-              onClick={() => setSelectedPlan(tier.id)}
-            >
+  key={tier.id}
+  className={cn(
+    "relative p-8 bg-white/70 backdrop-blur-xl rounded-2xl border border-white/40 shadow-md transition-all duration-300 group hover:shadow-glow hover:border-foreground/30 cursor-pointer",
+    tier.popular ? "scale-105 ring-2 ring-red-200" : "",
+    selectedPlan === tier.id ? "border-red-200" : "",
+    isVisible ? "animate-fade-in-up opacity-100" : "opacity-0 translate-y-10"
+  )}
+  style={{ animationDelay: `${600 + idx * 200}ms` }}
+  onClick={() => setSelectedPlan(tier.id)}
+>
               
               {/* Popular Badge */}
               {tier.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-gradient-to-r from-rose-400 to-rose-500 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
+                  <div className="bg-gradient-to-r from-red-400 to-red-500 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
                     ⭐ {tier.badge}
                   </div>
                 </div>
@@ -138,8 +137,8 @@ export function Pricing() {
                 
                 {/* Header */}
                 <div className="text-center mb-8">
-                  <div className="w-16 h-16 bg-gradient-to-r from-rose-400 to-rose-500 rounded-2xl flex items-center justify-center mx-auto mb-4 hover:scale-110 hover:rotate-6 transition-transform duration-500">
-                    <span className="text-white text-2xl font-bold">
+                  <div className="w-16 h-16 bg-white  shadow-glow rounded-2xl flex items-center justify-center mx-auto mb-4 hover:scale-110 hover:rotate-6 transition-transform duration-500">
+                    <span className="text-black text-2xl font-bold">
                       {tier.name.charAt(0)}
                     </span>
                   </div>
@@ -185,15 +184,21 @@ export function Pricing() {
         </div>
 
         {/* Request Form */}
-        <div className={`max-w-2xl mx-auto transition-all duration-1000 delay-1200 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
-          <div className="bg-gradient-to-br from-rose-50/50 to-rose-100/50 rounded-3xl p-8 border border-rose-100/50">
-            
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Ready to Get Started?</h3>
-              <p className="text-gray-600">Tell us about your team and we'll get you set up with the right access level.</p>
-            </div>
+       <div
+  className="relative bg-background rounded-2xl p-8 md:p-12 border group hover:border-rose-300 transition-all duration-300"
+>
+  {/* Glow effect */}
+  <div className="pointer-events-none absolute inset-0 rounded-2xl shadow-glow opacity-0 opacity-100 transition-opacity duration-300" />
+
+  <div className="text-center mb-8">
+    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+      Ready to Get Started?
+    </h3>
+    <p className="text-gray-600">
+      Tell us about your team and we'll get you set up with the right access
+      level.
+    </p>
+  </div>
 
             <form className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -266,7 +271,7 @@ export function Pricing() {
                 <p>We'll review your request and get back to you with next steps.</p>
               </div>
             </form>
-          </div>
+          
         </div>
       </div>
 

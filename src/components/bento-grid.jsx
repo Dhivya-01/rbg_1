@@ -82,41 +82,41 @@ const BentoGridItem = ({
 
 const items = [
   {
-    title: 'Developer Experience',
+    title: 'Maker–Checker Workflows',
     description:
-      'Built with developers in mind, making implementation a breeze.',
+      'AI handles the heavy lifting; humans validate only when needed.',
     icon: <Code className="size-6" />,
     size: "large",
   },
   {
-    title: 'Accessibility',
+    title: 'Structure the Unstructured',
     description:
-      'Built with a11y best practices to ensure your app is usable by everyone.',
+      'Convert any file — documents, PDFs, images, audio — into clean, structured data.',
     icon: <Layers className="size-6" />,
     size: "small",
   },
   {
-    title: 'Responsive Design',
-    description: 'Create layouts that adapt to any screen size with ease.',
+    title: 'Industry-Grade Accuracy',
+    description: 'Designed for legal, financial, and healthcare processes where precision is critical.',
     icon: <Layers className="size-6" />,
     size: "medium",
   },
   {
-    title: 'Customizable',
-    description: "Tailor components to match your brand's unique style.",
+    title: 'Smart Orchestration',
+    description: "Confidence scoring and business rules route tasks intelligently.",
     icon: <Palette className="size-6" />,
     size: "medium",
   },
   {
-    title: 'Performance',
-    description: 'Optimized for speed and efficiency across all devices.',
+    title: 'Own Your Model (OYM)',
+    description: 'Customize MLStack APIs and keep full control of your models.',
     icon: <Zap className="size-6" />,
     size: "small",
   },
   {
-    title: 'Documentation',
+    title: 'Real Enterprise Impact',
     description:
-      'Comprehensive guides and examples to help you get started quickly.',
+      '5x faster processing, 60% cost savings, and measurable ROI.',
     icon: <FileText className="size-6" />,
     size: "large",
   },

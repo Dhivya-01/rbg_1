@@ -205,13 +205,21 @@ const ResponsiveTimeline = () => {
         )}
 
         {/* Sidebar */}
-        <div className={`
+        {/* <div className={`
           fixed lg:static inset-y-0 left-0 z-40 lg:z-auto
           w-80 lg:w-80 xl:w-96 bg-red-50 border-r border-gray-100 
           transform transition-transform duration-300 ease-in-out lg:transform-none
           ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
           flex flex-col pt-0 lg:pt-0
-        `}>
+        `}> */}
+        <div className={`
+  fixed lg:static inset-y-0 left-0 z-40 lg:z-auto
+  w-80 lg:w-80 xl:w-96 shadow-glow opacity-0 opacity-100 transition-opacity duration-300
+  transform transition-transform duration-300 ease-in-out lg:transform-none
+  ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+  flex flex-col pt-0 lg:pt-0 shadow-glow-left  transition-shadow
+`}>
+
           {/* Step Navigation */}
           <div className="flex-1 overflow-y-auto p-4 lg:p-6 pt-6 lg:pt-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-6">Process Steps</h3>
@@ -323,7 +331,7 @@ const ResponsiveTimeline = () => {
                     {/* Image Side */}
                     <div className="bg-red-50 p-6 sm:p-8 lg:p-12 flex items-center justify-center order-1 lg:order-2 min-h-[300px] lg:min-h-0">
                       <div className="relative">
-                        <div className="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 bg-white rounded-xl shadow-lg p-4 lg:p-6 flex items-center justify-center">
+                        <div className="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 bg-white shadow-glow opacity-0 opacity-100 transition-opacity duration-300  rounded-xl shadow-lg p-4 lg:p-6 flex items-center justify-center">
                           <img
                             src={step.image}
                             alt={step.title}

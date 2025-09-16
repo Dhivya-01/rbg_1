@@ -75,25 +75,25 @@ const thirdColumn = testimonials.slice(6, 9);
 
 const Testimonials = () => {
   return (
-    <section className="bg-background my-20 relative">
+    <section className="bg-background my-20 ">
 
-      <div className="container z-10 mx-auto">
+      <div className="container  mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="flex flex-col items-center justify-center max-w-[540px] mx-auto"
+          className="flex flex-col items-center justify-center max-w-[640px] mx-auto"
         >
           <div className="flex justify-center">
-            <div className="border py-1 px-4 rounded-lg">Testimonials</div>
+            <div className="border py-1 px-4 rounded-lg">Features</div>
           </div>
 
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tighter mt-5">
-            What our users say
+            Features That Drive Results
           </h2>
           <p className="text-center mt-5 opacity-75">
-            See what our customers have to say about us.
+            See the key features that drive accuracy and efficiency.
           </p>
         </motion.div>
 
