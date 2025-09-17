@@ -1535,7 +1535,7 @@
 
 
 
-
+import { Link } from "react-router-dom";
 import logo from "../assests/images/rbg.jpeg";
 import React, { useState, useEffect, useRef } from "react";
 import { ChevronDown, Menu, X, Mic, FileText, Image, RotateCcw, Layers } from "lucide-react";
@@ -1577,15 +1577,46 @@ export default function Navbar() {
     setActiveDropdown(null);
   };
 
+  // Custom ScrollToTopLink component with animation
+const ScrollToTopLink = ({ to, children, className, onClick }) => {
+  const handleClick = () => {
+    if (onClick) onClick(); // run extra logic if passed
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  return (
+    <motion.div
+      whileHover={{
+        scale: 1.05,
+        transition: { duration: 0.2 },
+      }}
+      whileTap={{ scale: 0.95 }}
+    >
+      <Link to={to} className={className} onClick={handleClick}>
+        {children}
+      </Link>
+    </motion.div>
+  );
+};
+
   const handleDropdownToggle = (dropdownName) => {
     setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName);
   };
 
-  const handleLinkClick = (path) => {
-    setButton(false);
-    setActiveDropdown(null);
-    navigate(path);
-  };
+  // const handleLinkClick = (path) => {
+  //   setButton(false);
+  //   setActiveDropdown(null);
+  //   navigate(path);
+  // };
+const handleLinkClick = (path) => {
+  setButton(false);
+  setActiveDropdown(null);
+  navigate(path);
+};
+
 
   const solutions = [
     {
@@ -1732,30 +1763,50 @@ export default function Navbar() {
                               animation: "dropdownSlide 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards"
                             }}
                           >
+                            
                             <div className="p-2">
                               {item.items.map((subItem, idx) => (
-                                <div
-                                  key={subItem.path}
-                                  className="group flex items-start space-x-3 p-4 rounded-xl hover:bg-slate-50 transition-all duration-300 relative overflow-hidden cursor-pointer"
-                                  onClick={() => handleLinkClick(subItem.path)}
-                                  style={{
-                                    animationDelay: `${idx * 60}ms`,
-                                    animation: "slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards"
-                                  }}
-                                >
-                                  <div className="p-2 bg-slate-100 rounded-lg text-slate-600 group-hover:bg-slate-900 group-hover:text-white transition-all duration-300">
-                                    {subItem.icon}
-                                  </div>
-                                  <div className="flex-1 min-w-0">
-                                    <h3 className="font-semibold text-slate-900 text-sm mb-1 group-hover:text-slate-900">
-                                      {subItem.title}
-                                    </h3>
-                                    <p className="text-xs text-slate-500 leading-relaxed group-hover:text-slate-600">
-                                      {subItem.description}
-                                    </p>
-                                  </div>
-                                  <div className="absolute bottom-0 left-4 right-4 h-px bg-slate-900 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-                                </div>
+                                // <div
+                                //   key={subItem.path}
+                                //   className="group flex items-start space-x-3 p-4 rounded-xl hover:bg-slate-50 transition-all duration-300 relative overflow-hidden cursor-pointer"
+                                //   onClick={() => handleLinkClick(subItem.path)}
+                                //   style={{
+                                //     animationDelay: `${idx * 60}ms`,
+                                //     animation: "slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards"
+                                //   }}
+                                // >
+                                //   <div className="p-2 bg-slate-100 rounded-lg text-slate-600 group-hover:bg-slate-900 group-hover:text-white transition-all duration-300">
+                                //     {subItem.icon}
+                                //   </div>
+                                //   <div className="flex-1 min-w-0">
+                                //     <h3 className="font-semibold text-slate-900 text-sm mb-1 group-hover:text-slate-900">
+                                //       {subItem.title}
+                                //     </h3>
+                                //     <p className="text-xs text-slate-500 leading-relaxed group-hover:text-slate-600">
+                                //       {subItem.description}
+                                //     </p>
+                                //   </div>
+                                //   <div className="absolute bottom-0 left-4 right-4 h-px bg-slate-900 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                                // </div>
+                                <ScrollToTopLink
+  to={subItem.path}
+  className="group flex items-start space-x-3 p-4 rounded-xl hover:bg-slate-50 transition-all duration-300 relative overflow-hidden cursor-pointer"
+  onClick={() => handleLinkClick(subItem.path)}
+>
+  <div className="p-2 bg-slate-100 rounded-lg text-slate-600 group-hover:bg-slate-900 group-hover:text-white transition-all duration-300">
+    {subItem.icon}
+  </div>
+  <div className="flex-1 min-w-0">
+    <h3 className="font-semibold text-slate-900 text-sm mb-1 group-hover:text-slate-900">
+      {subItem.title}
+    </h3>
+    <p className="text-xs text-slate-500 leading-relaxed group-hover:text-slate-600">
+      {subItem.description}
+    </p>
+  </div>
+  <div className="absolute bottom-0 left-4 right-4 h-px bg-slate-900 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+</ScrollToTopLink>
+
                               ))}
                             </div>
                           </div>
