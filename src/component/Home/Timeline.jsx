@@ -9,125 +9,125 @@
 //   const containerRef = useRef(null);
 //   const stepsRefs = useRef([]);
 
-  // const steps = [
-  //   {
-  //     id: 1,
-  //     number: "01",
-  //     title: "Upload",
-  //     description: "Upload any format: text, scanned PDFs, images, or audio files through our secure platform.",
-  //     details: [
-  //       "Secure file upload with encryption",
-  //       "Support for multiple file formats",
-  //       "Batch processing capabilities",
-  //       "Real-time upload status tracking"
-  //     ],
-  //     image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976847/upload_not_edited_fgus4l.svg"
-  //   },
-  //   {
-  //     id: 2,
-  //     number: "02",
-  //     title: "Preprocessing",
-  //     description: "The system standardizes, compresses, and cleans the data, preparing it for accurate processing.",
-  //     details: [
-  //       "Automated data standardization",
-  //       "File compression and optimization",
-  //       "Quality enhancement algorithms",
-  //       "Format normalization processes"
-  //     ],
-  //     image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976821/Preprocessing_not_edited_dlyxso.svg"
-  //   },
-  //   {
-  //     id: 3,
-  //     number: "03",
-  //     title: "Transcription",
-  //     description: "Files such as images or audio are converted into machine-readable text using advanced AI technology.",
-  //     details: [
-  //       "Advanced OCR technology",
-  //       "Speech-to-text conversion",
-  //       "Multi-language support",
-  //       "High accuracy transcription"
-  //     ],
-  //     image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976808/Transcription_not_edited_tclx0o.svg"
-  //   },
-  //   {
-  //     id: 4,
-  //     number: "04",
-  //     title: "Extraction",
-  //     description: "Large Language Models extract key data points and generate structured JSON output with precision.",
-  //     details: [
-  //       "AI-powered data extraction",
-  //       "Structured JSON output",
-  //       "Intelligent field recognition",
-  //       "Context-aware processing"
-  //     ],
-  //     image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976775/extractror_not_edited_h96ppg.svg"
-  //   },
-  //   {
-  //     id: 5,
-  //     number: "05",
-  //     title: "Human Review",
-  //     description: "When AI confidence is low, output is routed to expert human reviewers for validation and correction.",
-  //     details: [
-  //       "Expert quality assurance",
-  //       "Manual validation process",
-  //       "Error correction and feedback",
-  //       "Continuous improvement loop"
-  //     ],
-  //     image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756977051/human_in_loop_not_edited_e8s6bf.svg"
-  //   },
-  //   {
-  //     id: 6,
-  //     number: "06",
-  //     title: "Post-Processing",
-  //     description: "JSON output undergoes validation, normalization, and compliance checks to ensure accuracy and consistency.",
-  //     details: [
-  //       "Data validation algorithms",
-  //       "Format standardization",
-  //       "Compliance verification",
-  //       "Final quality checks"
-  //     ],
-  //     image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976797/post_processingg_not_edited_ac9iy8.svg"
-  //   },
-  //   {
-  //     id: 7,
-  //     number: "07",
-  //     title: "Final Result",
-  //     description: "A verified, structured file processed by AI for speed and reviewed by humans for accuracy.",
-  //     details: [
-  //       "High-quality output guarantee",
-  //       "Structured data format",
-  //       "Ready for integration",
-  //       "Comprehensive documentation"
-  //     ],
-  //     image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1757073684/output_1_jfdihf.svg"
-  //   },
-  //   {
-  //     id: 8,
-  //     number: "08",
-  //     title: "Client Approval",
-  //     description: "Clients review the final output and approve or request modifications based on their requirements.",
-  //     details: [
-  //       "Interactive review interface",
-  //       "Approval workflow management",
-  //       "Revision request handling",
-  //       "Client feedback integration"
-  //     ],
-  //     image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1757073807/client_approval_1_iq7tnl.svg"
-  //   },
-  //   {
-  //     id: 9,
-  //     number: "09",
-  //     title: "Report Download",
-  //     description: "Once approved, reports are available for download in multiple formats for analysis and integration.",
-  //     details: [
-  //       "Multiple export formats",
-  //       "Instant download access",
-  //       "Integration-ready files",
-  //       "Comprehensive reporting"
-  //     ],
-  //     image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1757073564/Report_Setup_not_edited_m3io5y.svg"
-  //   }
-  // ];
+//   const steps = [
+//     {
+//       id: 1,
+//       number: "01",
+//       title: "Upload",
+//       description: "Upload any format: text, scanned PDFs, images, or audio files through our secure platform.",
+//       details: [
+//         "Secure file upload with encryption",
+//         "Support for multiple file formats",
+//         "Batch processing capabilities",
+//         "Real-time upload status tracking"
+//       ],
+//       image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976847/upload_not_edited_fgus4l.svg"
+//     },
+//     {
+//       id: 2,
+//       number: "02",
+//       title: "Preprocessing",
+//       description: "The system standardizes, compresses, and cleans the data, preparing it for accurate processing.",
+//       details: [
+//         "Automated data standardization",
+//         "File compression and optimization",
+//         "Quality enhancement algorithms",
+//         "Format normalization processes"
+//       ],
+//       image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976821/Preprocessing_not_edited_dlyxso.svg"
+//     },
+//     {
+//       id: 3,
+//       number: "03",
+//       title: "Transcription",
+//       description: "Files such as images or audio are converted into machine-readable text using advanced AI technology.",
+//       details: [
+//         "Advanced OCR technology",
+//         "Speech-to-text conversion",
+//         "Multi-language support",
+//         "High accuracy transcription"
+//       ],
+//       image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976808/Transcription_not_edited_tclx0o.svg"
+//     },
+//     {
+//       id: 4,
+//       number: "04",
+//       title: "Extraction",
+//       description: "Large Language Models extract key data points and generate structured JSON output with precision.",
+//       details: [
+//         "AI-powered data extraction",
+//         "Structured JSON output",
+//         "Intelligent field recognition",
+//         "Context-aware processing"
+//       ],
+//       image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976775/extractror_not_edited_h96ppg.svg"
+//     },
+//     {
+//       id: 5,
+//       number: "05",
+//       title: "Human Review",
+//       description: "When AI confidence is low, output is routed to expert human reviewers for validation and correction.",
+//       details: [
+//         "Expert quality assurance",
+//         "Manual validation process",
+//         "Error correction and feedback",
+//         "Continuous improvement loop"
+//       ],
+//       image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756977051/human_in_loop_not_edited_e8s6bf.svg"
+//     },
+//     {
+//       id: 6,
+//       number: "06",
+//       title: "Post-Processing",
+//       description: "JSON output undergoes validation, normalization, and compliance checks to ensure accuracy and consistency.",
+//       details: [
+//         "Data validation algorithms",
+//         "Format standardization",
+//         "Compliance verification",
+//         "Final quality checks"
+//       ],
+//       image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976797/post_processingg_not_edited_ac9iy8.svg"
+//     },
+//     {
+//       id: 7,
+//       number: "07",
+//       title: "Final Result",
+//       description: "A verified, structured file processed by AI for speed and reviewed by humans for accuracy.",
+//       details: [
+//         "High-quality output guarantee",
+//         "Structured data format",
+//         "Ready for integration",
+//         "Comprehensive documentation"
+//       ],
+//       image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1757073684/output_1_jfdihf.svg"
+//     },
+//     {
+//       id: 8,
+//       number: "08",
+//       title: "Client Approval",
+//       description: "Clients review the final output and approve or request modifications based on their requirements.",
+//       details: [
+//         "Interactive review interface",
+//         "Approval workflow management",
+//         "Revision request handling",
+//         "Client feedback integration"
+//       ],
+//       image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1757073807/client_approval_1_iq7tnl.svg"
+//     },
+//     {
+//       id: 9,
+//       number: "09",
+//       title: "Report Download",
+//       description: "Once approved, reports are available for download in multiple formats for analysis and integration.",
+//       details: [
+//         "Multiple export formats",
+//         "Instant download access",
+//         "Integration-ready files",
+//         "Comprehensive reporting"
+//       ],
+//       image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1757073564/Report_Setup_not_edited_m3io5y.svg"
+//     }
+//   ];
 
 //   useEffect(() => {
 //     const handleScroll = () => {
@@ -357,7 +357,366 @@
 // export default ResponsiveTimeline;
 
 
+import React, { useState, useEffect, useRef } from 'react';
+import { ChevronRight, Check, Menu, X } from 'lucide-react';
 
+const ResponsiveTimeline = () => {
+  const [activeStep, setActiveStep] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const stepsRefs = useRef([]);
+
+  const steps = [
+    {
+      id: 1,
+      number: "01",
+      title: "Upload",
+      description: "Upload any format: text, scanned PDFs, images, or audio files through our secure platform.",
+      details: [
+        "Secure file upload with encryption",
+        "Support for multiple file formats",
+        "Batch processing capabilities",
+        "Real-time upload status tracking"
+      ],
+      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976847/upload_not_edited_fgus4l.svg"
+    },
+    {
+      id: 2,
+      number: "02",
+      title: "Preprocessing",
+      description: "The system standardizes, compresses, and cleans the data, preparing it for accurate processing.",
+      details: [
+        "Automated data standardization",
+        "File compression and optimization",
+        "Quality enhancement algorithms",
+        "Format normalization processes"
+      ],
+      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976821/Preprocessing_not_edited_dlyxso.svg"
+    },
+    {
+      id: 3,
+      number: "03",
+      title: "Transcription",
+      description: "Files such as images or audio are converted into machine-readable text using advanced AI technology.",
+      details: [
+        "Advanced OCR technology",
+        "Speech-to-text conversion",
+        "Multi-language support",
+        "High accuracy transcription"
+      ],
+      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976808/Transcription_not_edited_tclx0o.svg"
+    },
+    {
+      id: 4,
+      number: "04",
+      title: "Extraction",
+      description: "Large Language Models extract key data points and generate structured JSON output with precision.",
+      details: [
+        "AI-powered data extraction",
+        "Structured JSON output",
+        "Intelligent field recognition",
+        "Context-aware processing"
+      ],
+      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976775/extractror_not_edited_h96ppg.svg"
+    },
+    {
+      id: 5,
+      number: "05",
+      title: "Human Review",
+      description: "When AI confidence is low, output is routed to expert human reviewers for validation and correction.",
+      details: [
+        "Expert quality assurance",
+        "Manual validation process",
+        "Error correction and feedback",
+        "Continuous improvement loop"
+      ],
+      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756977051/human_in_loop_not_edited_e8s6bf.svg"
+    },
+    {
+      id: 6,
+      number: "06",
+      title: "Post-Processing",
+      description: "JSON output undergoes validation, normalization, and compliance checks to ensure accuracy and consistency.",
+      details: [
+        "Data validation algorithms",
+        "Format standardization",
+        "Compliance verification",
+        "Final quality checks"
+      ],
+      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976797/post_processingg_not_edited_ac9iy8.svg"
+    },
+    {
+      id: 7,
+      number: "07",
+      title: "Final Result",
+      description: "A verified, structured file processed by AI for speed and reviewed by humans for accuracy.",
+      details: [
+        "High-quality output guarantee",
+        "Structured data format",
+        "Ready for integration",
+        "Comprehensive documentation"
+      ],
+      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1757073684/output_1_jfdihf.svg"
+    },
+    {
+      id: 8,
+      number: "08",
+      title: "Client Approval",
+      description: "Clients review the final output and approve or request modifications based on their requirements.",
+      details: [
+        "Interactive review interface",
+        "Approval workflow management",
+        "Revision request handling",
+        "Client feedback integration"
+      ],
+      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1757073807/client_approval_1_iq7tnl.svg"
+    },
+    {
+      id: 9,
+      number: "09",
+      title: "Report Download",
+      description: "Once approved, reports are available for download in multiple formats for analysis and integration.",
+      details: [
+        "Multiple export formats",
+        "Instant download access",
+        "Integration-ready files",
+        "Comprehensive reporting"
+      ],
+      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1757073564/Report_Setup_not_edited_m3io5y.svg"
+    }
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Get the total page scroll
+      const scrollTop = window.pageYOffset;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = Math.min(scrollTop / docHeight, 1);
+      
+      setScrollProgress(progress);
+      
+      // Find which step is currently in view
+      let currentStep = 0;
+      stepsRefs.current.forEach((ref, index) => {
+        if (ref) {
+          const rect = ref.getBoundingClientRect();
+          const elementTop = rect.top;
+          const elementBottom = rect.bottom;
+          const windowHeight = window.innerHeight;
+          
+          // Consider a step active when it's in the center 40% of the viewport
+          const activeZoneTop = windowHeight * 0.3;
+          const activeZoneBottom = windowHeight * 0.7;
+          
+          if (elementTop <= activeZoneBottom && elementBottom >= activeZoneTop) {
+            currentStep = index;
+          }
+        }
+      });
+      
+      setActiveStep(currentStep);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Call once to set initial state
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToStep = (index) => {
+    const element = stepsRefs.current[index];
+    if (element) {
+      const elementTop = element.offsetTop;
+      const windowHeight = window.innerHeight;
+      const elementHeight = element.offsetHeight;
+      
+      // Scroll to center the element in the viewport
+      const scrollTo = elementTop - (windowHeight - elementHeight) / 2;
+      
+      window.scrollTo({
+        top: scrollTo,
+        behavior: 'smooth'
+      });
+    }
+    
+    // Close sidebar on mobile after navigation
+    setSidebarOpen(false);
+  };
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Mobile Header */}
+      <div className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 lg:hidden">
+        <div className="flex items-center justify-between px-4 py-4">
+          <div>
+            <h1 className="text-xl font-bold text-gray-900">Our Process</h1>
+            <p className="text-sm text-gray-600">Step {activeStep + 1} of {steps.length}</p>
+          </div>
+          <button
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            className="p-2 rounded-lg hover:bg-red-100"
+          >
+            {sidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+        <div className="px-4 pb-3">
+          <div className="w-full h-1 bg-red-200 rounded-full">
+            <div 
+              className="h-full bg-gray-900 rounded-full transition-all duration-300"
+              style={{ width: `${((activeStep + 1) / steps.length) * 100}%` }}
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="flex">
+        {/* Mobile Sidebar Overlay */}
+        {sidebarOpen && (
+          <div 
+            className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+            onClick={() => setSidebarOpen(false)}
+          />
+        )}
+
+        {/* Sidebar */}
+        <div className={`
+          fixed lg:sticky lg:top-0 inset-y-0 left-0 z-40 lg:z-auto
+          w-80 lg:w-80 xl:w-96 bg-red-50 border-r border-gray-100 
+          transform transition-transform duration-300 ease-in-out lg:transform-none
+          ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+          flex flex-col h-screen
+        `}>
+          {/* Step Navigation */}
+          <div className="flex-1 overflow-y-auto p-4 lg:p-6 pt-6 lg:pt-6 mt-20 lg:mt-0">
+            <h3 className="text-lg font-semibold text-gray-900 mb-6">Process Steps</h3>
+            <div className="space-y-2">
+              {steps.map((step, index) => (
+                <button
+                  key={step.id}
+                  onClick={() => scrollToStep(index)}
+                  className={`w-full text-left p-3 lg:p-4 rounded-lg transition-all duration-200 group ${
+                    index === activeStep
+                      ? 'bg-white shadow-sm border border-gray-200'
+                      : 'hover:bg-white hover:shadow-sm'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <div className={`w-7 h-7 lg:w-8 lg:h-8 rounded-full flex items-center justify-center text-xs lg:text-sm font-semibold transition-all duration-200 ${
+                      index === activeStep
+                        ? 'bg-red-500 text-white'
+                        : index < activeStep
+                          ? 'bg-green-100 text-green-700'
+                          : 'bg-red-100 text-red-600'
+                    }`}>
+                      {index < activeStep ? <Check className="w-3 h-3 lg:w-4 lg:h-4" /> : step.number}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className={`font-medium transition-colors duration-200 text-sm lg:text-base ${
+                        index === activeStep ? 'text-gray-900' : 'text-gray-700'
+                      }`}>
+                        {step.title}
+                      </div>
+                      <div className="text-xs text-gray-500 mt-1 truncate">
+                        {step.description.substring(0, 40)}...
+                      </div>
+                    </div>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Progress Bar */}
+          <div className="p-4 lg:p-6 border-t border-gray-200">
+            <div className="text-sm text-gray-600 mb-2">Overall Progress</div>
+            <div className="w-full h-1 bg-red-200 rounded-full">
+              <div 
+                className="h-full bg-gray-900 rounded-full transition-all duration-500"
+                style={{ width: `${scrollProgress * 100}%` }}
+              />
+            </div>
+            <div className="text-xs text-gray-500 mt-1">
+              {Math.round(scrollProgress * 100)}% Complete
+            </div>
+          </div>
+        </div>
+
+        {/* Main Content */}
+        <div className="flex-1 pt-20 lg:pt-0">
+          {steps.map((step, index) => (
+            <div
+              key={step.id}
+              ref={el => stepsRefs.current[index] = el}
+              className="min-h-screen flex items-center justify-center p-4 lg:p-8"
+            >
+              <div className="max-w-6xl mx-auto w-full">
+                <div className="bg-white rounded-xl lg:rounded-2xl shadow-lg lg:shadow-xl border border-gray-100 overflow-hidden">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                    {/* Content Side */}
+                    <div className="p-6 sm:p-8 lg:p-12 flex flex-col justify-center order-2 lg:order-1">
+                      <div className="mb-6">
+                        <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gray-900 text-white rounded-xl text-lg sm:text-xl lg:text-2xl font-bold mb-4">
+                          {step.number}
+                        </div>
+                        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">{step.title}</h2>
+                        <p className="text-base lg:text-lg text-gray-600 leading-relaxed mb-6 lg:mb-8">
+                          {step.description}
+                        </p>
+                      </div>
+
+                      {/* Details */}
+                      <div className="space-y-3 mb-6 lg:mb-0">
+                        {step.details.map((detail, idx) => (
+                          <div key={idx} className="flex items-start gap-3">
+                            <div className="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-gray-900 rounded-full mt-2 flex-shrink-0" />
+                            <span className="text-sm lg:text-base text-gray-700 leading-relaxed">{detail}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Navigation */}
+                      <div className="flex items-center gap-4 mt-6 lg:mt-8 pt-6 lg:pt-8 border-t border-gray-100">
+                        <button
+                          onClick={() => index < steps.length - 1 && scrollToStep(index + 1)}
+                          disabled={index === steps.length - 1}
+                          className="inline-flex items-center gap-2 bg-gradient-to-r from-red-400 to-red-600 text-white px-5 lg:px-7 py-3 lg:py-4 rounded-xl font-semibold shadow-md hover:shadow-lg hover:scale-105 transform transition-all duration-300 ease-out disabled:opacity-50 disabled:cursor-not-allowed text-sm lg:text-base"
+                        >
+                          {index === steps.length - 1 ? 'Process Complete' : 'Next Step'}
+                          {index < steps.length - 1 && <ChevronRight className="w-4 h-4" />}
+                        </button>
+                        <span className="text-sm text-gray-500">
+                          {index + 1} of {steps.length}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Image Side */}
+                    <div className="bg-red-50 p-6 sm:p-8 lg:p-12 flex items-center justify-center order-1 lg:order-2 min-h-[300px] lg:min-h-0">
+                      <div className="relative">
+                        <div className="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 bg-white rounded-xl shadow-lg p-4 lg:p-6 flex items-center justify-center">
+                          <img
+                            src={step.image}
+                            alt={step.title}
+                            className="max-w-full max-h-full object-contain"
+                          />
+                        </div>
+                        {/* Decorative elements - hidden on mobile */}
+                        <div className="absolute -top-4 -right-4 w-16 h-16 lg:w-24 lg:h-24 bg-red-100 rounded-full opacity-50 hidden sm:block" />
+                        <div className="absolute -bottom-6 -left-6 w-12 h-12 lg:w-16 lg:h-16 bg-red-200 rounded-full opacity-30 hidden sm:block" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ResponsiveTimeline;
 
 // import React, { useState, useEffect, useRef } from 'react';
 // import { ChevronRight, Check, ArrowRight } from 'lucide-react';
@@ -1105,430 +1464,430 @@
 
 
 
-import React, { useState, useEffect, useRef } from 'react';
-import { ChevronRight, Check, ArrowRight, Clock, Users, Shield, Zap, Play, Pause } from 'lucide-react';
+// import React, { useState, useEffect, useRef } from 'react';
+// import { ChevronRight, Check, ArrowRight, Clock, Users, Shield, Zap, Play, Pause } from 'lucide-react';
 
-const AdvancedProcessFlow = () => {
-  const [visibleSteps, setVisibleSteps] = useState([]);
-  const [activeStep, setActiveStep] = useState(-1);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(false);
-  const [hoveredStep, setHoveredStep] = useState(null);
-  const stepsRefs = useRef([]);
-  const autoPlayRef = useRef();
+// const AdvancedProcessFlow = () => {
+//   const [visibleSteps, setVisibleSteps] = useState([]);
+//   const [activeStep, setActiveStep] = useState(-1);
+//   const [isAutoPlaying, setIsAutoPlaying] = useState(false);
+//   const [hoveredStep, setHoveredStep] = useState(null);
+//   const stepsRefs = useRef([]);
+//   const autoPlayRef = useRef();
 
-  const steps = [
-    {
-      id: 1,
-      number: "01",
-      title: "Upload",
-      description: "Upload any format: text, scanned PDFs, images, or audio files through our secure platform.",
-      details: [
-        "Secure file upload with encryption",
-        "Support for multiple file formats",
-        "Batch processing capabilities",
-        "Real-time upload status tracking"
-      ],
-      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976847/upload_not_edited_fgus4l.svg",
-      icon: Shield,
-      color: "white",
-      bgColor: "bg-red-50"
-    },
-    {
-      id: 2,
-      number: "02",
-      title: "Preprocessing",
-      description: "The system standardizes, compresses, and cleans the data, preparing it for accurate processing.",
-      details: [
-        "Automated data standardization",
-        "File compression and optimization",
-        "Quality enhancement algorithms",
-        "Format normalization processes"
-      ],
-      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976821/Preprocessing_not_edited_dlyxso.svg",
-      icon: Zap,
-      color: "from-red-500 to-red-600",
-      bgColor: "bg-red-50"
-    },
-    {
-      id: 3,
-      number: "03",
-      title: "Transcription",
-      description: "Files such as images or audio are converted into machine-readable text using advanced AI technology.",
-      details: [
-        "Advanced OCR technology",
-        "Speech-to-text conversion",
-        "Multi-language support",
-        "High accuracy transcription"
-      ],
-      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976808/Transcription_not_edited_tclx0o.svg",
-      icon: Clock,
-      color: "from-red-500 to-red-600",
-      bgColor: "bg-red-50"
-    },
-    {
-      id: 4,
-      number: "04",
-      title: "Extraction",
-      description: "Large Language Models extract key data points and generate structured JSON output with precision.",
-      details: [
-        "AI-powered data extraction",
-        "Structured JSON output",
-        "Intelligent field recognition",
-        "Context-aware processing"
-      ],
-      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976775/extractror_not_edited_h96ppg.svg",
-      icon: Zap,
-      color: "from-red-500 to-red-600",
-      bgColor: "bg-red-50"
-    },
-    {
-      id: 5,
-      number: "05",
-      title: "Human Review",
-      description: "When AI confidence is low, output is routed to expert human reviewers for validation and correction.",
-      details: [
-        "Expert quality assurance",
-        "Manual validation process",
-        "Error correction and feedback",
-        "Continuous improvement loop"
-      ],
-      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756977051/human_in_loop_not_edited_e8s6bf.svg",
-      icon: Users,
-      color: "from-red-500 to-red-600",
-      bgColor: "bg-red-50"
-    },
-    {
-      id: 6,
-      number: "06",
-      title: "Post-Processing",
-      description: "JSON output undergoes validation, normalization, and compliance checks to ensure accuracy and consistency.",
-      details: [
-        "Data validation algorithms",
-        "Format standardization",
-        "Compliance verification",
-        "Final quality checks"
-      ],
-      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976797/post_processingg_not_edited_ac9iy8.svg",
-      icon: Shield,
-      color: "from-red-500 to-red-600",
-      bgColor: "bg-red-50"
-    },
-    {
-      id: 7,
-      number: "07",
-      title: "Final Result",
-      description: "A verified, structured file processed by AI for speed and reviewed by humans for accuracy.",
-      details: [
-        "High-quality output guarantee",
-        "Structured data format",
-        "Ready for integration",
-        "Comprehensive documentation"
-      ],
-      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1757073684/output_1_jfdihf.svg",
-      icon: Check,
-      color: "from-red-500 to-red-600",
-      bgColor: "bg-red-50"
-    },
-    {
-      id: 8,
-      number: "08",
-      title: "Client Approval",
-      description: "Clients review the final output and approve or request modifications based on their requirements.",
-      details: [
-        "Interactive review interface",
-        "Approval workflow management",
-        "Revision request handling",
-        "Client feedback integration"
-      ],
-      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1757073807/client_approval_1_iq7tnl.svg",
-      icon: Users,
-      color: "from-red-500 to-red-600",
-      bgColor: "bg-red-50"
-    },
-    {
-      id: 9,
-      number: "09",
-      title: "Report Download",
-      description: "Once approved, reports are available for download in multiple formats for analysis and integration.",
-      details: [
-        "Multiple export formats",
-        "Instant download access",
-        "Integration-ready files",
-        "Comprehensive reporting"
-      ],
-      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1757073564/Report_Setup_not_edited_m3io5y.svg",
-      icon: ArrowRight,
-      color: "from-red-500 to-red-600",
-      bgColor: "bg-red-50"
-    }
-  ];
+//   const steps = [
+//     {
+//       id: 1,
+//       number: "01",
+//       title: "Upload",
+//       description: "Upload any format: text, scanned PDFs, images, or audio files through our secure platform.",
+//       details: [
+//         "Secure file upload with encryption",
+//         "Support for multiple file formats",
+//         "Batch processing capabilities",
+//         "Real-time upload status tracking"
+//       ],
+//       image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976847/upload_not_edited_fgus4l.svg",
+//       icon: Shield,
+//       color: "white",
+//       bgColor: "bg-red-50"
+//     },
+//     {
+//       id: 2,
+//       number: "02",
+//       title: "Preprocessing",
+//       description: "The system standardizes, compresses, and cleans the data, preparing it for accurate processing.",
+//       details: [
+//         "Automated data standardization",
+//         "File compression and optimization",
+//         "Quality enhancement algorithms",
+//         "Format normalization processes"
+//       ],
+//       image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976821/Preprocessing_not_edited_dlyxso.svg",
+//       icon: Zap,
+//       color: "from-red-500 to-red-600",
+//       bgColor: "bg-red-50"
+//     },
+//     {
+//       id: 3,
+//       number: "03",
+//       title: "Transcription",
+//       description: "Files such as images or audio are converted into machine-readable text using advanced AI technology.",
+//       details: [
+//         "Advanced OCR technology",
+//         "Speech-to-text conversion",
+//         "Multi-language support",
+//         "High accuracy transcription"
+//       ],
+//       image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976808/Transcription_not_edited_tclx0o.svg",
+//       icon: Clock,
+//       color: "from-red-500 to-red-600",
+//       bgColor: "bg-red-50"
+//     },
+//     {
+//       id: 4,
+//       number: "04",
+//       title: "Extraction",
+//       description: "Large Language Models extract key data points and generate structured JSON output with precision.",
+//       details: [
+//         "AI-powered data extraction",
+//         "Structured JSON output",
+//         "Intelligent field recognition",
+//         "Context-aware processing"
+//       ],
+//       image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976775/extractror_not_edited_h96ppg.svg",
+//       icon: Zap,
+//       color: "from-red-500 to-red-600",
+//       bgColor: "bg-red-50"
+//     },
+//     {
+//       id: 5,
+//       number: "05",
+//       title: "Human Review",
+//       description: "When AI confidence is low, output is routed to expert human reviewers for validation and correction.",
+//       details: [
+//         "Expert quality assurance",
+//         "Manual validation process",
+//         "Error correction and feedback",
+//         "Continuous improvement loop"
+//       ],
+//       image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756977051/human_in_loop_not_edited_e8s6bf.svg",
+//       icon: Users,
+//       color: "from-red-500 to-red-600",
+//       bgColor: "bg-red-50"
+//     },
+//     {
+//       id: 6,
+//       number: "06",
+//       title: "Post-Processing",
+//       description: "JSON output undergoes validation, normalization, and compliance checks to ensure accuracy and consistency.",
+//       details: [
+//         "Data validation algorithms",
+//         "Format standardization",
+//         "Compliance verification",
+//         "Final quality checks"
+//       ],
+//       image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976797/post_processingg_not_edited_ac9iy8.svg",
+//       icon: Shield,
+//       color: "from-red-500 to-red-600",
+//       bgColor: "bg-red-50"
+//     },
+//     {
+//       id: 7,
+//       number: "07",
+//       title: "Final Result",
+//       description: "A verified, structured file processed by AI for speed and reviewed by humans for accuracy.",
+//       details: [
+//         "High-quality output guarantee",
+//         "Structured data format",
+//         "Ready for integration",
+//         "Comprehensive documentation"
+//       ],
+//       image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1757073684/output_1_jfdihf.svg",
+//       icon: Check,
+//       color: "from-red-500 to-red-600",
+//       bgColor: "bg-red-50"
+//     },
+//     {
+//       id: 8,
+//       number: "08",
+//       title: "Client Approval",
+//       description: "Clients review the final output and approve or request modifications based on their requirements.",
+//       details: [
+//         "Interactive review interface",
+//         "Approval workflow management",
+//         "Revision request handling",
+//         "Client feedback integration"
+//       ],
+//       image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1757073807/client_approval_1_iq7tnl.svg",
+//       icon: Users,
+//       color: "from-red-500 to-red-600",
+//       bgColor: "bg-red-50"
+//     },
+//     {
+//       id: 9,
+//       number: "09",
+//       title: "Report Download",
+//       description: "Once approved, reports are available for download in multiple formats for analysis and integration.",
+//       details: [
+//         "Multiple export formats",
+//         "Instant download access",
+//         "Integration-ready files",
+//         "Comprehensive reporting"
+//       ],
+//       image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1757073564/Report_Setup_not_edited_m3io5y.svg",
+//       icon: ArrowRight,
+//       color: "from-red-500 to-red-600",
+//       bgColor: "bg-red-50"
+//     }
+//   ];
 
-  // Auto-play functionality
-  useEffect(() => {
-    if (isAutoPlaying) {
-      autoPlayRef.current = setInterval(() => {
-        setActiveStep(prev => {
-          const next = prev + 1;
-          if (next >= steps.length) {
-            setIsAutoPlaying(false);
-            return 0;
-          }
-          return next;
-        });
-      }, 2000);
-    } else {
-      clearInterval(autoPlayRef.current);
-    }
+//   // Auto-play functionality
+//   useEffect(() => {
+//     if (isAutoPlaying) {
+//       autoPlayRef.current = setInterval(() => {
+//         setActiveStep(prev => {
+//           const next = prev + 1;
+//           if (next >= steps.length) {
+//             setIsAutoPlaying(false);
+//             return 0;
+//           }
+//           return next;
+//         });
+//       }, 2000);
+//     } else {
+//       clearInterval(autoPlayRef.current);
+//     }
 
-    return () => clearInterval(autoPlayRef.current);
-  }, [isAutoPlaying, steps.length]);
+//     return () => clearInterval(autoPlayRef.current);
+//   }, [isAutoPlaying, steps.length]);
 
-  // Intersection Observer
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const stepIndex = parseInt(entry.target.dataset.stepIndex);
+//   // Intersection Observer
+//   useEffect(() => {
+//     const observer = new IntersectionObserver(
+//       (entries) => {
+//         entries.forEach((entry) => {
+//           const stepIndex = parseInt(entry.target.dataset.stepIndex);
           
-          if (entry.isIntersecting) {
-            setVisibleSteps(prev => {
-              if (!prev.includes(stepIndex)) {
-                const newVisible = [...prev, stepIndex].sort((a, b) => a - b);
-                if (activeStep === -1) {
-                  setActiveStep(stepIndex);
-                }
-                return newVisible;
-              }
-              return prev;
-            });
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
+//           if (entry.isIntersecting) {
+//             setVisibleSteps(prev => {
+//               if (!prev.includes(stepIndex)) {
+//                 const newVisible = [...prev, stepIndex].sort((a, b) => a - b);
+//                 if (activeStep === -1) {
+//                   setActiveStep(stepIndex);
+//                 }
+//                 return newVisible;
+//               }
+//               return prev;
+//             });
+//           }
+//         });
+//       },
+//       { threshold: 0.3 }
+//     );
 
-    stepsRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
+//     stepsRefs.current.forEach((ref) => {
+//       if (ref) observer.observe(ref);
+//     });
 
-    return () => observer.disconnect();
-  }, [activeStep]);
+//     return () => observer.disconnect();
+//   }, [activeStep]);
 
-  return (
-   <div className="bg-white">
-      {/* Enhanced Header Section */}
-      <div className="max-w-6xl mx-auto px-4 py-20">
-        <div className="text-center mb-20">
+//   return (
+//    <div className="bg-white">
+//       {/* Enhanced Header Section */}
+//       <div className="max-w-6xl mx-auto px-4 py-20">
+//         <div className="text-center mb-20">
           
-          <h1 className="text-5xl font-bold text-red-400 mb-6 tracking-tight">Our Process</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            A comprehensive 9-step workflow designed to transform your data with precision, security, and reliability
-          </p>
-          <div className="flex items-center justify-center space-x-8 mt-8 text-sm text-gray-500">
-            <div className="flex items-center space-x-2">
-              <Shield className="w-4 h-4 text-red-600" />
-              <span>Enterprise Security</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Clock className="w-4 h-4 text-red-600" />
-              <span>Real-time Processing</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Users className="w-4 h-4 text-red-600" />
-              <span>Human-AI Collaboration</span>
-            </div>
-          </div>
-        </div>
+//           <h1 className="text-5xl font-bold text-red-400 mb-6 tracking-tight">Our Process</h1>
+//           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+//             A comprehensive 9-step workflow designed to transform your data with precision, security, and reliability
+//           </p>
+//           <div className="flex items-center justify-center space-x-8 mt-8 text-sm text-gray-500">
+//             <div className="flex items-center space-x-2">
+//               <Shield className="w-4 h-4 text-red-600" />
+//               <span>Enterprise Security</span>
+//             </div>
+//             <div className="flex items-center space-x-2">
+//               <Clock className="w-4 h-4 text-red-600" />
+//               <span>Real-time Processing</span>
+//             </div>
+//             <div className="flex items-center space-x-2">
+//               <Users className="w-4 h-4 text-red-600" />
+//               <span>Human-AI Collaboration</span>
+//             </div>
+//           </div>
+//         </div>
 
-      {/* Process Flow Visualization */}
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        {/* Flow Path Container */}
-        <div className="relative">
-          {/* Curved Path SVG */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none hidden lg:block" style={{ height: `${steps.length * 200}px` }}>
-            <defs>
-              <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#f63b3bff" stopOpacity="0.3" />
-                <stop offset="50%" stopColor="#f65c5cff" stopOpacity="0.3" />
-                <stop offset="100%" stopColor="#d40606ff" stopOpacity="0.3" />
-              </linearGradient>
-            </defs>
-            <path
-              d={`M 100 50 ${steps.map((_, i) => {
-                const y = i * 200 + 100;
-                const x = i % 2 === 0 ? 100 : window.innerWidth - 200;
-                return `Q ${window.innerWidth / 2} ${y - 50} ${x} ${y}`;
-              }).join(' ')}`}
-              stroke="url(#pathGradient)"
-              strokeWidth="3"
-              fill="none"
-              strokeDasharray="10,5"
-              className="animate-pulse"
-            />
-          </svg>
+//       {/* Process Flow Visualization */}
+//       <div className="max-w-7xl mx-auto px-6 py-16">
+//         {/* Flow Path Container */}
+//         <div className="relative">
+//           {/* Curved Path SVG */}
+//           <svg className="absolute inset-0 w-full h-full pointer-events-none hidden lg:block" style={{ height: `${steps.length * 200}px` }}>
+//             <defs>
+//               <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+//                 <stop offset="0%" stopColor="#f63b3bff" stopOpacity="0.3" />
+//                 <stop offset="50%" stopColor="#f65c5cff" stopOpacity="0.3" />
+//                 <stop offset="100%" stopColor="#d40606ff" stopOpacity="0.3" />
+//               </linearGradient>
+//             </defs>
+//             <path
+//               d={`M 100 50 ${steps.map((_, i) => {
+//                 const y = i * 200 + 100;
+//                 const x = i % 2 === 0 ? 100 : window.innerWidth - 200;
+//                 return `Q ${window.innerWidth / 2} ${y - 50} ${x} ${y}`;
+//               }).join(' ')}`}
+//               stroke="url(#pathGradient)"
+//               strokeWidth="3"
+//               fill="none"
+//               strokeDasharray="10,5"
+//               className="animate-pulse"
+//             />
+//           </svg>
 
-          {/* Step Cards */}
-          <div className="space-y-8 lg:space-y-16">
-            {steps.map((step, index) => {
-              const isVisible = visibleSteps.includes(index);
-              const isActive = index === activeStep;
-              const isCompleted = index < activeStep;
-              const IconComponent = step.icon;
-              const isEven = index % 2 === 0;
+//           {/* Step Cards */}
+//           <div className="space-y-8 lg:space-y-16">
+//             {steps.map((step, index) => {
+//               const isVisible = visibleSteps.includes(index);
+//               const isActive = index === activeStep;
+//               const isCompleted = index < activeStep;
+//               const IconComponent = step.icon;
+//               const isEven = index % 2 === 0;
               
-              return (
-                <div
-                  key={step.id}
-                  ref={el => {
-                    stepsRefs.current[index] = el;
-                    if (el) el.dataset.stepIndex = index;
-                  }}
-                  className={`relative transition-all duration-1000 ease-out ${
-                    isVisible 
-                      ? 'opacity-100 translate-y-0 scale-100' 
-                      : 'opacity-0 translate-y-20 scale-95'
-                  }`}
-                  onMouseEnter={() => setHoveredStep(index)}
-                  onMouseLeave={() => setHoveredStep(null)}
-                >
-                  <div className={`flex flex-col lg:flex-row items-center gap-8 ${
-                    isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'
-                  }`}>
+//               return (
+//                 <div
+//                   key={step.id}
+//                   ref={el => {
+//                     stepsRefs.current[index] = el;
+//                     if (el) el.dataset.stepIndex = index;
+//                   }}
+//                   className={`relative transition-all duration-1000 ease-out ${
+//                     isVisible 
+//                       ? 'opacity-100 translate-y-0 scale-100' 
+//                       : 'opacity-0 translate-y-20 scale-95'
+//                   }`}
+//                   onMouseEnter={() => setHoveredStep(index)}
+//                   onMouseLeave={() => setHoveredStep(null)}
+//                 >
+//                   <div className={`flex flex-col lg:flex-row items-center gap-8 ${
+//                     isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'
+//                   }`}>
                     
-                    {/* Step Number & Icon */}
-                    <div className="relative flex-shrink-0">
-                      <div className={`w-16 h-16 rounded-3xl border-4 flex items-center justify-center transition-all duration-500 ${
-                        isActive 
-                          ? `bg-gradient-to-br ${step.color} border-white shadow-2xl scale-110` 
-                          : isCompleted
-                          ? 'bg-slate-700 border-slate-600 shadow-lg'
-                          : 'bg-white border-slate-200 shadow-md'
-                      }`}>
-                        <div className="text-center">
-                          <IconComponent className={`w-8 h-8 mx-auto mb-2 ${
-                            isActive || isCompleted ? 'text-red-600' : 'text-slate-400'
-                          }`} />
-                          <div className={`text-sm font-bold ${
-                            isActive || isCompleted ? 'text-red-600' : 'text-slate-600'
-                          }`}>
-                            {step.number}
-                          </div>
-                        </div>
-                      </div>
+//                     {/* Step Number & Icon */}
+//                     <div className="relative flex-shrink-0">
+//                       <div className={`w-16 h-16 rounded-3xl border-4 flex items-center justify-center transition-all duration-500 ${
+//                         isActive 
+//                           ? `bg-gradient-to-br ${step.color} border-white shadow-2xl scale-110` 
+//                           : isCompleted
+//                           ? 'bg-slate-700 border-slate-600 shadow-lg'
+//                           : 'bg-white border-slate-200 shadow-md'
+//                       }`}>
+//                         <div className="text-center">
+//                           <IconComponent className={`w-8 h-8 mx-auto mb-2 ${
+//                             isActive || isCompleted ? 'text-red-600' : 'text-slate-400'
+//                           }`} />
+//                           <div className={`text-sm font-bold ${
+//                             isActive || isCompleted ? 'text-red-600' : 'text-slate-600'
+//                           }`}>
+//                             {step.number}
+//                           </div>
+//                         </div>
+//                       </div>
 
-                      {/* Status Indicator */}
-                      <div className={`absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
-                        isCompleted 
-                          ? 'bg-green-500 scale-100' 
-                          : isActive 
-                          ? 'bg-blue-500 scale-100 animate-pulse' 
-                          : 'bg-slate-300 scale-0'
-                      }`}>
-                        {isCompleted ? (
-                          <Check className="w-4 h-4 text-white" />
-                        ) : (
-                          <div className="w-2 h-2 bg-white rounded-full" />
-                        )}
-                      </div>
+//                       {/* Status Indicator */}
+//                       <div className={`absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
+//                         isCompleted 
+//                           ? 'bg-green-500 scale-100' 
+//                           : isActive 
+//                           ? 'bg-blue-500 scale-100 animate-pulse' 
+//                           : 'bg-slate-300 scale-0'
+//                       }`}>
+//                         {isCompleted ? (
+//                           <Check className="w-4 h-4 text-white" />
+//                         ) : (
+//                           <div className="w-2 h-2 bg-white rounded-full" />
+//                         )}
+//                       </div>
 
-                      {/* Connection Arrow */}
-                      {index < steps.length - 1 && (
-                        <div className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-4 transition-all duration-500 ${
-                          isCompleted || isActive ? 'opacity-100' : 'opacity-30'
-                        }`}>
-                          <ChevronRight className={`w-6 h-6 rotate-90 ${
-                            isCompleted || isActive ? 'text-blue-500' : 'text-slate-300'
-                          }`} />
-                        </div>
-                      )}
-                    </div>
+//                       {/* Connection Arrow */}
+//                       {index < steps.length - 1 && (
+//                         <div className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-4 transition-all duration-500 ${
+//                           isCompleted || isActive ? 'opacity-100' : 'opacity-30'
+//                         }`}>
+//                           <ChevronRight className={`w-6 h-6 rotate-90 ${
+//                             isCompleted || isActive ? 'text-blue-500' : 'text-slate-300'
+//                           }`} />
+//                         </div>
+//                       )}
+//                     </div>
 
-                    {/* Content Card */}
-                    <div className={`flex-1 max-w-2xl transition-all duration-500 ${
-                      isActive ? 'scale-105' : 'scale-100'
-                    }`}>
-                      <div className={`relative overflow-hidden rounded-2xl transition-all duration-500 ${
-                        isActive 
-                          ? `${step.bgColor} border-2 border-slate-300 shadow-2xl` 
-                          : hoveredStep === index
-                          ? 'bg-white border-2 border-slate-200 shadow-xl'
-                          : 'bg-white border border-slate-100 shadow-md'
-                      }`}>
+//                     {/* Content Card */}
+//                     <div className={`flex-1 max-w-2xl transition-all duration-500 ${
+//                       isActive ? 'scale-105' : 'scale-100'
+//                     }`}>
+//                       <div className={`relative overflow-hidden rounded-2xl transition-all duration-500 ${
+//                         isActive 
+//                           ? `${step.bgColor} border-2 border-slate-300 shadow-2xl` 
+//                           : hoveredStep === index
+//                           ? 'bg-white border-2 border-slate-200 shadow-xl'
+//                           : 'bg-white border border-slate-100 shadow-md'
+//                       }`}>
                         
-                        {/* Card Content */}
-                        <div className="p-8">
-                          <div className="flex items-start justify-between mb-6">
-                            <div className="flex-1">
-                              <h3 className="text-2xl font-bold text-slate-800 mb-2">{step.title}</h3>
-                              <p className="text-slate-600 leading-relaxed">{step.description}</p>
-                            </div>
+//                         {/* Card Content */}
+//                         <div className="p-8">
+//                           <div className="flex items-start justify-between mb-6">
+//                             <div className="flex-1">
+//                               <h3 className="text-2xl font-bold text-slate-800 mb-2">{step.title}</h3>
+//                               <p className="text-slate-600 leading-relaxed">{step.description}</p>
+//                             </div>
                             
-                            {/* Image */}
-                            <div className={`ml-6 w-24 h-24 flex-shrink-0 transition-all duration-300 ${
-                              hoveredStep === index ? 'scale-110' : 'scale-100'
-                            }`}>
-                              <img
-                                src={step.image}
-                                alt={step.title}
-                                className="w-full h-full object-contain"
-                              />
-                            </div>
-                          </div>
+//                             {/* Image */}
+//                             <div className={`ml-6 w-24 h-24 flex-shrink-0 transition-all duration-300 ${
+//                               hoveredStep === index ? 'scale-110' : 'scale-100'
+//                             }`}>
+//                               <img
+//                                 src={step.image}
+//                                 alt={step.title}
+//                                 className="w-full h-full object-contain"
+//                               />
+//                             </div>
+//                           </div>
 
-                          {/* Details - Show on active or hover */}
-                          <div className={`grid grid-cols-1 sm:grid-cols-2 gap-3 transition-all duration-500 ${
-                            isActive || hoveredStep === index 
-                              ? 'opacity-100 max-h-96' 
-                              : 'opacity-0 max-h-0 overflow-hidden'
-                          }`}>
-                            {step.details.map((detail, idx) => (
-                              <div
-                                key={idx}
-                                className={`flex items-start space-x-3 p-3 bg-white/70 rounded-lg transition-all duration-300 ${
-                                  isActive || hoveredStep === index ? 'translate-x-0' : '-translate-x-4'
-                                }`}
-                                style={{ 
-                                  transitionDelay: `${idx * 100}ms` 
-                                }}
-                              >
-                                <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-gradient-to-r ${step.color}`} />
-                                <span className="text-sm text-slate-700 font-medium">{detail}</span>
-                              </div>
-                            ))}
-                          </div>
+//                           {/* Details - Show on active or hover */}
+//                           <div className={`grid grid-cols-1 sm:grid-cols-2 gap-3 transition-all duration-500 ${
+//                             isActive || hoveredStep === index 
+//                               ? 'opacity-100 max-h-96' 
+//                               : 'opacity-0 max-h-0 overflow-hidden'
+//                           }`}>
+//                             {step.details.map((detail, idx) => (
+//                               <div
+//                                 key={idx}
+//                                 className={`flex items-start space-x-3 p-3 bg-white/70 rounded-lg transition-all duration-300 ${
+//                                   isActive || hoveredStep === index ? 'translate-x-0' : '-translate-x-4'
+//                                 }`}
+//                                 style={{ 
+//                                   transitionDelay: `${idx * 100}ms` 
+//                                 }}
+//                               >
+//                                 <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-gradient-to-r ${step.color}`} />
+//                                 <span className="text-sm text-slate-700 font-medium">{detail}</span>
+//                               </div>
+//                             ))}
+//                           </div>
 
-                          {/* Progress Bar */}
-                          <div className={`mt-6 transition-all duration-500 ${
-                            isActive ? 'opacity-100' : 'opacity-0'
-                          }`}>
+//                           {/* Progress Bar */}
+//                           <div className={`mt-6 transition-all duration-500 ${
+//                             isActive ? 'opacity-100' : 'opacity-0'
+//                           }`}>
                            
-                            <div className="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
-                              <div 
-                                className={`h-full bg-gradient-to-r ${step.color} transition-all duration-1000`}
-                                style={{ width: isActive ? '100%' : '0%' }}
-                              />
-                            </div>
-                          </div>
-                        </div>
+//                             <div className="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+//                               <div 
+//                                 className={`h-full bg-gradient-to-r ${step.color} transition-all duration-1000`}
+//                                 style={{ width: isActive ? '100%' : '0%' }}
+//                               />
+//                             </div>
+//                           </div>
+//                         </div>
 
-                        {/* Hover Glow Effect */}
-                        <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 transition-opacity duration-300 ${
-                          hoveredStep === index ? 'opacity-5' : ''
-                        }`} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+//                         {/* Hover Glow Effect */}
+//                         <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 transition-opacity duration-300 ${
+//                           hoveredStep === index ? 'opacity-5' : ''
+//                         }`} />
+//                       </div>
+//                     </div>
+//                   </div>
+//                 </div>
+//               );
+//             })}
+//           </div>
+//         </div>
 
   
-      </div>
-    </div>
-    </div>
-  );
-};
+//       </div>
+//     </div>
+//     </div>
+//   );
+// };
 
-export default AdvancedProcessFlow;
+// export default AdvancedProcessFlow;

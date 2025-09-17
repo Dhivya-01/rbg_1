@@ -620,7 +620,7 @@ export default function ModernFooter() {
 
   return (
     <>
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
       
       {/* Main Footer */}
       <footer className="relative bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50 overflow-hidden">
@@ -812,11 +812,11 @@ export default function ModernFooter() {
             </div>
 
             {/* Made in India */}
-            <div className="group flex items-center space-x-2 text-slate-500 hover:text-red-500 transition-colors duration-300 cursor-pointer">
+            {/* <div className="group flex items-center space-x-2 text-slate-500 hover:text-red-500 transition-colors duration-300 cursor-pointer">
               <span className="text-sm font-medium">Made with</span>
               <span className="text-red-500 text-lg group-hover:scale-125 group-hover:rotate-12 transition-all duration-300">❤️</span>
               <span className="text-sm font-medium">in India</span>
-            </div>
+            </div> */}
           </div>
         </div>
       </footer>
