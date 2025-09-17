@@ -46,7 +46,7 @@ export const TestimonialsColumn = (props) => {
                         {IconComponent && (
                           <IconComponent 
                             size={20} 
-                            className="text-primary"
+                            className="text-red-600"
                           />
                         )}
                       </div>

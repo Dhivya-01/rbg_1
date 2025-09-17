@@ -658,7 +658,7 @@ export function Proof({
               <div
                 key={idx}
                 data-index={idx}
-                className={`stat-item animated-item relative text-center p-8 bg-background rounded-xl border transition-all duration-300 group isolate ${
+                className={`stat-item animated-item relative text-center p-8 bg-background rounded-xl  transition-all duration-300 group isolate ${
                   visibleItems.has(idx) 
                     ? 'animate-fade-in-up opacity-100' 
                     : 'opacity-0 translate-y-10'
@@ -669,7 +669,7 @@ export function Proof({
                 }}
               >
                 <div className="w-12 h-12 mx-auto mb-4 flex items-center justify-center bg-muted rounded-lg  transition-colors">
-                  <IconComponent className="w-6 h-6 text-foreground" />
+                  <IconComponent className="w-6 h-6 text-red-600" />
                 </div>
                 <div className="text-3xl font-bold text-foreground mb-2">
                   {counters[idx] || 0}{stat.suffix}
@@ -692,7 +692,7 @@ export function Proof({
             
             <div className="text-center mb-12">
               <h3 className="text-3xl font-bold text-foreground mb-4 tracking-tight">
-                Why Enterprises Choose MLtoOps™
+                Why Enterprises Choose MLloOps™
               </h3>
               <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                 Purpose-built for enterprises that demand accuracy, compliance, and scale.
@@ -717,7 +717,7 @@ export function Proof({
                     }}
                   >
                     <div className="w-12 h-12 bg-background rounded-lg flex items-center justify-center border flex-shrink-0">
-                      <IconComponent className="w-5 h-5 text-foreground" />
+                      <IconComponent className="w-5 h-5 text-red-600" />
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-foreground mb-2">{benefit.title}</h4>

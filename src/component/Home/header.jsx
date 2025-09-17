@@ -623,150 +623,7 @@
 import React, { useState, useEffect } from "react";
 import { ChevronRight, Zap, Target, Layers, ArrowRight, CheckCircle, Play, Users, TrendingUp, Shield } from "lucide-react";
 
-// Animated Background Component
-const AnimatedImageBackground = ({ 
-  primaryImages = [],
-  secondaryImages = [],
-  opacity = 0.08,
-  primaryCount = 20,
-  secondaryCount = 15 
-}) => {
-  // Default placeholder images if none provided
-  const defaultPrimaryImages = [
-    "https://res.cloudinary.com/datwcxi7y/image/upload/v1756452543/Screenshot_2025-08-29_125834_jnwl5e.png",
-    "https://res.cloudinary.com/datwcxi7y/image/upload/v1756452543/Screenshot_2025-08-29_125834_jnwl5e.png",
-    "https://res.cloudinary.com/datwcxi7y/image/upload/v1756452543/Screenshot_2025-08-29_125834_jnwl5e.png",
-    "https://res.cloudinary.com/datwcxi7y/image/upload/v1756452543/Screenshot_2025-08-29_125834_jnwl5e.png",
 
-   
-  ];
-
-  const defaultSecondaryImages = [
-   "https://res.cloudinary.com/datwcxi7y/image/upload/v1756452543/Screenshot_2025-08-29_125834_jnwl5e.png",
-
-
-   "https://res.cloudinary.com/datwcxi7y/image/upload/v1756452543/Screenshot_2025-08-29_125834_jnwl5e.png",
-   "https://res.cloudinary.com/datwcxi7y/image/upload/v1756452543/Screenshot_2025-08-29_125834_jnwl5e.png",
-   "https://res.cloudinary.com/datwcxi7y/image/upload/v1756452543/Screenshot_2025-08-29_125834_jnwl5e.png",
-    
-   
-  ];
-
-  const finalPrimaryImages = primaryImages.length > 0 ? primaryImages : defaultPrimaryImages;
-  const finalSecondaryImages = secondaryImages.length > 0 ? secondaryImages : defaultSecondaryImages;
-
-  return (
-    <>
-      {/* CSS Animations */}
-      <style jsx>{`
-        @keyframes floatRight {
-          0% { transform: translateX(-120px) translateY(0px) rotate(0deg) scale(0.7); }
-          25% { transform: translateX(25vw) translateY(-40px) rotate(90deg) scale(1.3); }
-          50% { transform: translateX(50vw) translateY(30px) rotate(180deg) scale(0.9); }
-          75% { transform: translateX(75vw) translateY(-20px) rotate(270deg) scale(1.1); }
-          100% { transform: translateX(calc(100vw + 120px)) translateY(0px) rotate(360deg) scale(0.7); }
-        }
-        @keyframes floatLeft {
-          0% { transform: translateX(calc(100vw + 120px)) translateY(0px) rotate(360deg) scale(1); }
-          25% { transform: translateX(75vw) translateY(35px) rotate(270deg) scale(0.6); }
-          50% { transform: translateX(50vw) translateY(-45px) rotate(180deg) scale(1.4); }
-          75% { transform: translateX(25vw) translateY(20px) rotate(90deg) scale(0.8); }
-          100% { transform: translateX(-120px) translateY(0px) rotate(0deg) scale(1); }
-        }
-        @keyframes floatDiagonal {
-          0% { transform: translateX(-100px) translateY(100vh) rotate(0deg) scale(0.5); }
-          33% { transform: translateX(30vw) translateY(70vh) rotate(120deg) scale(1.5); }
-          66% { transform: translateX(70vw) translateY(30vh) rotate(240deg) scale(0.7); }
-          100% { transform: translateX(calc(100vw + 100px)) translateY(-100px) rotate(360deg) scale(0.5); }
-        }
-        @keyframes floatVertical {
-          0% { transform: translateY(100vh) translateX(0px) rotate(0deg) scale(0.8); }
-          25% { transform: translateY(75vh) translateX(20px) rotate(90deg) scale(1.2); }
-          50% { transform: translateY(50vh) translateX(40px) rotate(180deg) scale(1.6); }
-          75% { transform: translateY(25vh) translateX(20px) rotate(270deg) scale(1); }
-          100% { transform: translateY(-120px) translateX(0px) rotate(360deg) scale(0.8); }
-        }
-        @keyframes floatZigzag {
-          0% { transform: translateX(-80px) translateY(0px) rotate(0deg) scale(1); }
-          20% { transform: translateX(20vw) translateY(-30px) rotate(72deg) scale(0.7); }
-          40% { transform: translateX(40vw) translateY(20px) rotate(144deg) scale(1.3); }
-          60% { transform: translateX(60vw) translateY(-25px) rotate(216deg) scale(0.9); }
-          80% { transform: translateX(80vw) translateY(15px) rotate(288deg) scale(1.1); }
-          100% { transform: translateX(calc(100vw + 80px)) translateY(0px) rotate(360deg) scale(1); }
-        }
-      `}</style>
-
-      {/* Main Background Container */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none " style={{ opacity }}>
-        {/* Primary Floating Images */}
-        {[...Array(primaryCount)].map((_, i) => {
-          const animations = ['floatRight', 'floatLeft', 'floatDiagonal', 'floatVertical', 'floatZigzag'];
-          const selectedAnimation = animations[i % animations.length];
-          
-          return (
-            <div
-              key={`primary-${i}`}
-              className="absolute will-change-transform"
-              style={{
-                top: `${(i * 17 + Math.sin(i) * 20) % 85}%`,
-                left: `${(i * 23 + Math.cos(i) * 15) % 85}%`,
-                animation: `${selectedAnimation} ${25 + (i % 10) * 2}s linear infinite`,
-                animationDelay: `${i * 2}s`,
-                zIndex: 1
-              }}
-            >
-              <img 
-                src={finalPrimaryImages[i % finalPrimaryImages.length]}
-                alt=""
-                className="w-64 h-64 object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
-                style={{ 
-                  filter: 'brightness(0.7) contrast(1.2)',
-                  mixBlendMode: 'multiply'
-                }}
-                onError={(e) => {
-                  console.log('Image failed to load:', e.target.src);
-                }}
-              />
-            </div>
-          );
-        })}
-
-        {/* Secondary Floating Images */}
-        {[...Array(secondaryCount)].map((_, i) => {
-          const animations = ['floatLeft', 'floatRight', 'floatVertical', 'floatZigzag', 'floatDiagonal'];
-          const selectedAnimation = animations[i % animations.length];
-          
-          return (
-            <div
-              key={`secondary-${i}`}
-              className="absolute will-change-transform"
-              style={{
-                top: `${(i * 25 + 60 + Math.sin(i + 1) * 25) % 85}%`,
-                right: `${(i * 18 + Math.cos(i + 1) * 20) % 85}%`,
-                animation: `${selectedAnimation} ${35 + (i % 8) * 3}s linear infinite`,
-                animationDelay: `${i * 3.5}s`,
-                zIndex: 1
-              }}
-            >
-              <img 
-                src={finalSecondaryImages[i % finalSecondaryImages.length]}
-                alt=""
-                className="w-12 h-12 object-contain opacity-60 hover:opacity-80 transition-opacity duration-300"
-                style={{ 
-                  filter: 'brightness(0.8) contrast(1.1)',
-                  mixBlendMode: 'multiply'
-                }}
-                onError={(e) => {
-                  console.log('Secondary image failed to load:', e.target.src);
-                }}
-              />
-            </div>
-          );
-        })}
-      </div>
-    </>
-  );
-};
 
 // Main MLloOps Component
 export default function MLloOpsLanding() {
@@ -816,29 +673,11 @@ export default function MLloOpsLanding() {
     { number: "24/7", label: "Support" }
   ];
 
-  // Your image URLs - Replace these with your actual image links
-  const myPrimaryImages = [
-    // "https://your-domain.com/image1.png",
-    // "https://your-domain.com/image2.png", 
-    // Add your actual image URLs here
-  ];
 
-  const mySecondaryImages = [
-    // "https://your-domain.com/small-image1.png",
-    // "https://your-domain.com/small-image2.png",
-    // Add your actual small image URLs here  
-  ];
 
   return (
     <div className="min-h-screen relative">
-      {/* Animated Background Component */}
-      {/* <AnimatedImageBackground 
-        primaryImages={myPrimaryImages}
-        secondaryImages={mySecondaryImages}
-        opacity={0.25}
-        primaryCount={15}
-        secondaryCount={10}
-      /> */}
+   
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">

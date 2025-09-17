@@ -1154,11 +1154,7 @@ export function Carouselflow() {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <button
-                  onClick={() => {
-                    // For artifact demo - replace with actual navigation
-                    alert('Would navigate to MLloOps page');
-                    // navigate("/MLloOps");
-                  }}
+                 
                   className="group bg-gradient-to-r from-red-500 to-red-600 hover:from-red-700 hover:to-red-700 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-red-500/25 flex items-center"
                 >
                   Get Started Today

@@ -89,7 +89,7 @@ const Testimonials = () => {
             <div className="border py-1 px-4 rounded-lg">Features</div>
           </div>
 
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tighter mt-5">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tighter mt-5 text-red-500">
             Features That Drive Results
           </h2>
           <p className="text-center mt-5 opacity-75">
