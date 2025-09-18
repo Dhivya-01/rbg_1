@@ -89,10 +89,10 @@ const Testimonials = () => {
             <div className="border py-1 px-4 rounded-lg">Features</div>
           </div>
 
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tighter mt-5 text-red-500">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tighter mt-5 text-slate-500">
             Features That Drive Results
           </h2>
-          <p className="text-center mt-5 opacity-75">
+          <p className="text-center mt-5 opacity-75 text-red-600  bg-red-100 dark:bg-red-900/30 rounded-full px-4 py-2">
             See the key features that drive accuracy and efficiency.
           </p>
         </motion.div>

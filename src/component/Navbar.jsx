@@ -2010,6 +2010,526 @@
 // }
 
 
+// import { Link, useLocation } from "react-router-dom";
+// import logo from "../assests/images/rbg.jpeg";
+// import React, { useState, useEffect, useRef } from "react";
+// import { ChevronDown, Menu, X, Mic, FileText, Image, RotateCcw, Layers } from "lucide-react";
+// import { motion } from "framer-motion";
+// import { useNavigate } from "react-router-dom";
+
+// export default function Navbar() {
+//   const [toggleButton, setButton] = useState(false);
+//   const [activeDropdown, setActiveDropdown] = useState(null);
+//   const [isScrolled, setIsScrolled] = useState(false);
+//   const menuRef = useRef(null);
+//   const navigate = useNavigate();
+//   const location = useLocation(); // Get current location
+
+//   useEffect(() => {
+//     const handleScroll = () => setIsScrolled(window.scrollY > 10);
+//     window.addEventListener("scroll", handleScroll);
+//     return () => window.removeEventListener("scroll", handleScroll);
+//   }, []);
+
+//   useEffect(() => {
+//     const handleClickOutside = (event) => {
+//       if (menuRef.current && !menuRef.current.contains(event.target)) {
+//         setActiveDropdown(null);
+//       }
+//     };
+//     document.addEventListener("mousedown", handleClickOutside);
+//     return () => document.removeEventListener("mousedown", handleClickOutside);
+//   }, []);
+
+//   useEffect(() => {
+//     document.body.style.overflow = toggleButton ? "hidden" : "unset";
+//     return () => {
+//       document.body.style.overflow = "unset";
+//     };
+//   }, [toggleButton]);
+
+//   const handleToggle = () => {
+//     setButton(!toggleButton);
+//     setActiveDropdown(null);
+//   };
+
+//   // Custom ScrollToTopLink component with animation
+//   const ScrollToTopLink = ({ to, children, className, onClick }) => {
+//     const handleClick = () => {
+//       if (onClick) onClick(); // run extra logic if passed
+//       window.scrollTo({
+//         top: 0,
+//         behavior: "smooth",
+//       });
+//     };
+
+//     return (
+//       <motion.div
+//         whileHover={{
+//           scale: 1.05,
+//           transition: { duration: 0.2 },
+//         }}
+//         whileTap={{ scale: 0.95 }}
+//       >
+//         <Link to={to} className={className} onClick={handleClick}>
+//           {children}
+//         </Link>
+//       </motion.div>
+//     );
+//   };
+
+//   const handleDropdownToggle = (dropdownName) => {
+//     setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName);
+//   };
+
+//   const handleLinkClick = (path) => {
+//     setButton(false);
+//     setActiveDropdown(null);
+//     navigate(path);
+//   };
+
+//   const solutions = [
+//     {
+//       path: "/Dhvani",
+//       title: "DHVANI",
+//       description: "AI Voice Recognition for Cybersecurity",
+//       icon: <Mic className="h-4 w-4" />,
+//     },
+//     {
+//       path: "/DeedParser",
+//       title: "Deed Parser",
+//       description: "GenAI Legal Document Processing",
+//       icon: <FileText className="h-4 w-4" />,
+//     },
+//     {
+//       path: "/knowvoice",
+//       title: "Know Voice",
+//       description: "Advanced Call Analytics Platform",
+//       icon: <Mic className="h-4 w-4" />,
+//     },
+//     {
+//       path: "/CaptchaSolver",
+//       title: "Captcha Solver",
+//       description: "Intelligent Automation Solution",
+//       icon: <Image className="h-4 w-4" />,
+//     },
+//     {
+//       path: "/FormExtractor",
+//       title: "Form Extractor",
+//       description: "Document Structure Intelligence",
+//       icon: <FileText className="h-4 w-4" />,
+//     }
+//   ];
+
+//   const products = [
+//     {
+//       path: "/MLloOps",
+//       title: "MLloOps",
+//       description: "Human-AI Collaboration Platform",
+//       icon: <RotateCcw className="h-4 w-4" />,
+//     },
+//     {
+//       path: "/MLStack",
+//       title: "MLStack",
+//       description: "Unified ML API Infrastructure",
+//       icon: <Layers className="h-4 w-4" />,
+//     }
+//   ];
+
+//   // Function to check if current route matches any item in an array
+//   const isActiveInGroup = (items) => {
+//     return items.some(item => location.pathname === item.path);
+//   };
+
+//   // Function to check if a specific path is active
+//   const isActivePath = (path) => {
+//     return location.pathname === path;
+//   };
+
+//   const navItems = [
+//     { 
+//       name: "Home", 
+//       path: "/", 
+//       active: isActivePath("/") 
+//     },
+//     { 
+//       name: "AI Stack", 
+//       dropdown: "products", 
+//       items: products,
+//       active: isActiveInGroup(products) 
+//     },
+//     { 
+//       name: "Use Cases", 
+//       dropdown: "solutions", 
+//       items: solutions,
+//       active: isActiveInGroup(solutions) 
+//     },
+//     { 
+//       name: "Research", 
+//       path: "/research", 
+//       active: isActivePath("/research") 
+//     },
+//     { 
+//       name: "About", 
+//       path: "/about", 
+//       active: isActivePath("/about") 
+//     }
+//   ];
+
+//   return (
+//     <>
+//       {/* Main Navigation Container */}
+//       <div className="fixed top-0 left-0 right-0 z-50">
+//         <div 
+//           className={`absolute inset-0 transition-all duration-500 ${
+//             isScrolled 
+//               ? 'bg-white/95 backdrop-blur-lg shadow-lg border-b border-slate-200/50' 
+//               : 'bg-transparent'
+//           }`} 
+//         />
+
+//         {/* Desktop Navigation */}
+//         <nav className="relative hidden lg:block">
+//           <div className="max-w-6xl mx-auto px-8 py-5">
+//             <div className="flex items-center justify-between">
+              
+//               {/* Logo Section */}
+//               <div 
+//                 className="flex items-center space-x-3 cursor-pointer group"
+//                 onClick={() => handleLinkClick("/")}
+//               >
+//                 <div className="relative overflow-hidden">
+//                   <motion.img
+//                     src={logo}
+//                     alt="Logo"
+//                     className="rounded-full w-12 h-12 object-cover"
+//                   />        
+//                   <div className="absolute inset-0 bg-white/20 transform -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+//                 </div>
+//                 <div>
+//                   <span className="text-lg font-bold text-slate-900 tracking-tight">
+//                     RBG.ai
+//                   </span>
+//                   <div className="text-xs text-slate-500 font-medium -mt-1">
+//                     AI SOLUTIONS
+//                   </div>
+//                 </div>
+//               </div>
+
+//               {/* Main Navigation */}
+//               <div className="flex items-center space-x-1" ref={menuRef}>
+//                 {navItems.map((item, index) => (
+//                   <div key={item.name} className="relative">
+//                     {item.dropdown ? (
+//                       <div className="relative">
+//                         <button
+//                           className={`
+//                             group flex items-center space-x-1 px-4 py-2.5 text-sm font-medium 
+//                             transition-all duration-300 rounded-lg relative overflow-hidden
+//                             ${item.active 
+//                               ? "text-slate-900 bg-slate-100 shadow-sm" 
+//                               : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
+//                             }
+//                           `}
+//                           onClick={() => handleDropdownToggle(item.dropdown)}
+//                           onMouseEnter={() => setActiveDropdown(item.dropdown)}
+//                           style={{
+//                             animationDelay: `${index * 100}ms`
+//                           }}
+//                         >
+//                           <span className="relative z-10">{item.name}</span>
+//                           <ChevronDown 
+//                             className={`h-3 w-3 transition-all duration-300 relative z-10 ${
+//                               activeDropdown === item.dropdown ? 'rotate-180' : ''
+//                             }`} 
+//                           />
+//                           <div className="absolute inset-0 bg-slate-100 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+//                         </button>
+
+//                         {/* Dropdown Menu */}
+//                         {activeDropdown === item.dropdown && (
+//                           <div 
+//                             className="absolute top-full left-1/2 transform -translate-x-1/2 mt-3 w-72 bg-white rounded-2xl shadow-2xl border border-slate-200/50 overflow-hidden"
+//                             onMouseLeave={() => setActiveDropdown(null)}
+//                             style={{
+//                               animation: "dropdownSlide 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards"
+//                             }}
+//                           >
+//                             <div className="p-2">
+//                               {item.items.map((subItem, idx) => (
+//                                 <ScrollToTopLink
+//                                   key={subItem.path}
+//                                   to={subItem.path}
+//                                   className={`group flex items-start space-x-3 p-4 rounded-xl transition-all duration-300 relative overflow-hidden cursor-pointer
+//                                     ${isActivePath(subItem.path) 
+//                                       ? "bg-slate-100 text-slate-900" 
+//                                       : "hover:bg-slate-50"
+//                                     }
+//                                   `}
+//                                   onClick={() => handleLinkClick(subItem.path)}
+//                                 >
+//                                   <div className={`p-2 rounded-lg transition-all duration-300 
+//                                     ${isActivePath(subItem.path)
+//                                       ? "bg-slate-900 text-white"
+//                                       : "bg-slate-100 text-slate-600 group-hover:bg-slate-900 group-hover:text-white"
+//                                     }
+//                                   `}>
+//                                     {subItem.icon}
+//                                   </div>
+//                                   <div className="flex-1 min-w-0">
+//                                     <h3 className={`font-semibold text-sm mb-1 group-hover:text-slate-900 
+//                                       ${isActivePath(subItem.path) ? "text-slate-900" : "text-slate-900"}
+//                                     `}>
+//                                       {subItem.title}
+//                                     </h3>
+//                                     <p className={`text-xs leading-relaxed group-hover:text-slate-600
+//                                       ${isActivePath(subItem.path) ? "text-slate-600" : "text-slate-500"}
+//                                     `}>
+//                                       {subItem.description}
+//                                     </p>
+//                                   </div>
+//                                   <div className={`absolute bottom-0 left-4 right-4 h-px transition-transform duration-300
+//                                     ${isActivePath(subItem.path)
+//                                       ? "bg-slate-900 scale-x-100"
+//                                       : "bg-slate-900 transform scale-x-0 group-hover:scale-x-100"
+//                                     }
+//                                   `} />
+//                                 </ScrollToTopLink>
+//                               ))}
+//                             </div>
+//                           </div>
+//                         )}
+//                       </div>
+//                     ) : (
+//                       <div
+//                         className={`
+//                           group px-4 py-2.5 text-sm font-medium transition-all duration-300 
+//                           rounded-lg relative overflow-hidden block cursor-pointer
+//                           ${item.active 
+//                             ? "text-slate-900 bg-slate-100 shadow-sm" 
+//                             : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
+//                           }
+//                         `}
+//                         onClick={() => handleLinkClick(item.path)}
+//                         style={{
+//                           animationDelay: `${index * 100}ms`
+//                         }}
+//                       >
+//                         <span className="relative z-10">{item.name}</span>
+//                         <div className="absolute inset-0 bg-slate-100 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+//                       </div>
+//                     )}
+//                   </div>
+//                 ))}
+//               </div>
+
+//               {/* CTA Button */}
+//               <div className="flex items-center">
+//                 <button 
+//                   className="group relative px-6 py-2.5 bg-slate-900 text-white text-sm font-medium rounded-lg overflow-hidden transition-all duration-300 hover:shadow-xl"
+//                   onClick={() => handleLinkClick("/get-started")}
+//                 >
+//                   <span className="relative z-10">Get Started</span>
+//                   <div className="absolute inset-0 bg-slate-700 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+//                 </button>
+//               </div>
+//             </div>
+//           </div>
+//         </nav>
+
+//         {/* Mobile Navigation */}
+//         <nav className="relative lg:hidden">
+//           <div className="px-4 py-4">
+//             <div className="flex items-center justify-between">
+//               <div 
+//                 className="flex items-center space-x-2 cursor-pointer"
+//                 onClick={() => handleLinkClick("/")}
+//               >
+//                 <motion.img
+//                   src={logo}
+//                   alt="Logo"
+//                   className="rounded-full w-12 h-12 object-cover"
+//                 />
+//                 <span className="text-lg font-bold text-slate-900">RBG.ai</span>
+//               </div>
+//               <button
+//                 onClick={handleToggle}
+//                 className="p-2 text-slate-600 hover:text-slate-900 transition-colors duration-300"
+//               >
+//                 {toggleButton ? (
+//                   <X className="h-6 w-6" />
+//                 ) : (
+//                   <Menu className="h-6 w-6" />
+//                 )}
+//               </button>
+//             </div>
+//           </div>
+//         </nav>
+//       </div>
+
+//       {/* Mobile Menu Overlay */}
+//       {toggleButton && (
+//         <div className="fixed inset-0 z-40 lg:hidden">
+//           <div 
+//             className="absolute inset-0 bg-slate-900/20 backdrop-blur-sm"
+//             onClick={handleToggle}
+//           />
+//           <div 
+//             className="absolute top-20 left-4 right-4 bg-white rounded-2xl shadow-2xl border border-slate-200 max-h-[calc(100vh-6rem)] overflow-y-auto"
+//             style={{
+//               animation: "mobileSlide 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards"
+//             }}
+//           >
+//             <div className="p-6">
+//               {navItems.map((item, index) => (
+//                 <div key={item.name} className="mb-2">
+//                   {item.dropdown ? (
+//                     <div>
+//                       <button
+//                         className={`flex items-center justify-between w-full py-3 px-4 text-left font-medium rounded-xl transition-all duration-300
+//                           ${item.active 
+//                             ? "text-slate-900 bg-slate-100" 
+//                             : "text-slate-900 hover:bg-slate-50"
+//                           }
+//                         `}
+//                         onClick={() => handleDropdownToggle(item.dropdown)}
+//                         style={{
+//                           animationDelay: `${index * 80}ms`,
+//                           animation: "slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards"
+//                         }}
+//                       >
+//                         <span>{item.name}</span>
+//                         <ChevronDown 
+//                           className={`h-4 w-4 transition-transform duration-300 ${
+//                             activeDropdown === item.dropdown ? 'rotate-180' : ''
+//                           }`} 
+//                         />
+//                       </button>
+//                       {activeDropdown === item.dropdown && (
+//                         <div className="mt-2 ml-4 space-y-1">
+//                           {item.items.map((subItem, idx) => (
+//                             <div
+//                               key={subItem.path}
+//                               className={`flex items-center space-x-3 p-3 rounded-xl transition-all duration-300 cursor-pointer
+//                                 ${isActivePath(subItem.path)
+//                                   ? "bg-slate-100 text-slate-900"
+//                                   : "hover:bg-slate-50"
+//                                 }
+//                               `}
+//                               onClick={() => handleLinkClick(subItem.path)}
+//                               style={{
+//                                 animationDelay: `${idx * 60}ms`,
+//                                 animation: "slideUp 0.3s ease-out forwards"
+//                               }}
+//                             >
+//                               <div className={`p-1.5 rounded-lg transition-all duration-300
+//                                 ${isActivePath(subItem.path)
+//                                   ? "bg-slate-900 text-white"
+//                                   : "bg-slate-100 text-slate-600"
+//                                 }
+//                               `}>
+//                                 {subItem.icon}
+//                               </div>
+//                               <div>
+//                                 <div className={`font-medium text-sm
+//                                   ${isActivePath(subItem.path) ? "text-slate-900" : "text-slate-900"}
+//                                 `}>
+//                                   {subItem.title}
+//                                 </div>
+//                                 <div className={`text-xs
+//                                   ${isActivePath(subItem.path) ? "text-slate-600" : "text-slate-500"}
+//                                 `}>
+//                                   {subItem.description}
+//                                 </div>
+//                               </div>
+//                             </div>
+//                           ))}
+//                         </div>
+//                       )}
+//                     </div>
+//                   ) : (
+//                     <div
+//                       className={`block py-3 px-4 font-medium rounded-xl transition-all duration-300 cursor-pointer
+//                         ${item.active 
+//                           ? "text-slate-900 bg-slate-100" 
+//                           : "text-slate-900 hover:bg-slate-50"
+//                         }
+//                       `}
+//                       onClick={() => handleLinkClick(item.path)}
+//                       style={{
+//                         animationDelay: `${index * 80}ms`,
+//                         animation: "slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards"
+//                       }}
+//                     >
+//                       {item.name}
+//                     </div>
+//                   )}
+//                 </div>
+//               ))}
+//               <div className="mt-6 pt-6 border-t border-slate-200">
+//                 <button 
+//                   className="w-full py-3 px-4 bg-slate-900 text-white rounded-xl font-medium transition-all duration-300 hover:bg-slate-700"
+//                   onClick={() => handleLinkClick("/get-started")}
+//                   style={{
+//                     animationDelay: `${navItems.length * 80}ms`,
+//                     animation: "slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards"
+//                   }}
+//                 >
+//                   Get Started
+//                 </button>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       )}
+
+//       {/* Spacer to prevent content overlap */}
+//       <div className="h-16 lg:h-20" />
+
+//       <style jsx>{`
+//         @keyframes slideUp {
+//           from {
+//             opacity: 0;
+//             transform: translateY(20px);
+//           }
+//           to {
+//             opacity: 1;
+//             transform: translateY(0);
+//           }
+//         }
+//         @keyframes dropdownSlide {
+//           from {
+//             opacity: 0;
+//             transform: translateX(-50%) translateY(-10px) scale(0.95);
+//           }
+//           to {
+//             opacity: 1;
+//             transform: translateX(-50%) translateY(0) scale(1);
+//           }
+//         }
+//         @keyframes mobileSlide {
+//           from {
+//             opacity: 0;
+//             transform: translateY(-20px) scale(0.95);
+//           }
+//           to {
+//             opacity: 1;
+//             transform: translateY(0) scale(1);
+//           }
+//         }
+//         .group:hover .absolute {
+//           transform: translateX(100%);
+//         }
+//       `}</style>
+//     </>
+//   );
+
+      
+                    
+// }
+
+
+
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assests/images/rbg.jpeg";
 import React, { useState, useEffect, useRef } from "react";
@@ -2023,7 +2543,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const menuRef = useRef(null);
   const navigate = useNavigate();
-  const location = useLocation(); // Get current location
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
@@ -2056,7 +2576,7 @@ export default function Navbar() {
   // Custom ScrollToTopLink component with animation
   const ScrollToTopLink = ({ to, children, className, onClick }) => {
     const handleClick = () => {
-      if (onClick) onClick(); // run extra logic if passed
+      if (onClick) onClick();
       window.scrollTo({
         top: 0,
         behavior: "smooth",
@@ -2136,12 +2656,10 @@ export default function Navbar() {
     }
   ];
 
-  // Function to check if current route matches any item in an array
   const isActiveInGroup = (items) => {
     return items.some(item => location.pathname === item.path);
   };
 
-  // Function to check if a specific path is active
   const isActivePath = (path) => {
     return location.pathname === path;
   };
@@ -2233,9 +2751,6 @@ export default function Navbar() {
                           `}
                           onClick={() => handleDropdownToggle(item.dropdown)}
                           onMouseEnter={() => setActiveDropdown(item.dropdown)}
-                          style={{
-                            animationDelay: `${index * 100}ms`
-                          }}
                         >
                           <span className="relative z-10">{item.name}</span>
                           <ChevronDown 
@@ -2256,7 +2771,7 @@ export default function Navbar() {
                             }}
                           >
                             <div className="p-2">
-                              {item.items.map((subItem, idx) => (
+                              {item.items.map((subItem) => (
                                 <ScrollToTopLink
                                   key={subItem.path}
                                   to={subItem.path}
@@ -2288,12 +2803,6 @@ export default function Navbar() {
                                       {subItem.description}
                                     </p>
                                   </div>
-                                  <div className={`absolute bottom-0 left-4 right-4 h-px transition-transform duration-300
-                                    ${isActivePath(subItem.path)
-                                      ? "bg-slate-900 scale-x-100"
-                                      : "bg-slate-900 transform scale-x-0 group-hover:scale-x-100"
-                                    }
-                                  `} />
                                 </ScrollToTopLink>
                               ))}
                             </div>
@@ -2311,9 +2820,6 @@ export default function Navbar() {
                           }
                         `}
                         onClick={() => handleLinkClick(item.path)}
-                        style={{
-                          animationDelay: `${index * 100}ms`
-                        }}
                       >
                         <span className="relative z-10">{item.name}</span>
                         <div className="absolute inset-0 bg-slate-100 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
@@ -2323,14 +2829,14 @@ export default function Navbar() {
                 ))}
               </div>
 
-              {/* CTA Button */}
+              {/* Desktop CTA Button - ONLY SHOW ON DESKTOP */}
               <div className="flex items-center">
                 <button 
-                  className="group relative px-6 py-2.5 bg-slate-900 text-white text-sm font-medium rounded-lg overflow-hidden transition-all duration-300 hover:shadow-xl"
+                  className="group relative px-6 py-2.5  text-red-600 text-md font-medium rounded-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:text-white"
                   onClick={() => handleLinkClick("/get-started")}
                 >
                   <span className="relative z-10">Get Started</span>
-                  <div className="absolute inset-0 bg-slate-700 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                  <div className="absolute inset-0 bg-red-700 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                 </button>
               </div>
             </div>
@@ -2367,7 +2873,7 @@ export default function Navbar() {
         </nav>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay - ONLY SHOW WHEN toggleButton is true */}
       {toggleButton && (
         <div className="fixed inset-0 z-40 lg:hidden">
           <div 
@@ -2393,10 +2899,6 @@ export default function Navbar() {
                           }
                         `}
                         onClick={() => handleDropdownToggle(item.dropdown)}
-                        style={{
-                          animationDelay: `${index * 80}ms`,
-                          animation: "slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards"
-                        }}
                       >
                         <span>{item.name}</span>
                         <ChevronDown 
@@ -2407,7 +2909,7 @@ export default function Navbar() {
                       </button>
                       {activeDropdown === item.dropdown && (
                         <div className="mt-2 ml-4 space-y-1">
-                          {item.items.map((subItem, idx) => (
+                          {item.items.map((subItem) => (
                             <div
                               key={subItem.path}
                               className={`flex items-center space-x-3 p-3 rounded-xl transition-all duration-300 cursor-pointer
@@ -2417,10 +2919,6 @@ export default function Navbar() {
                                 }
                               `}
                               onClick={() => handleLinkClick(subItem.path)}
-                              style={{
-                                animationDelay: `${idx * 60}ms`,
-                                animation: "slideUp 0.3s ease-out forwards"
-                              }}
                             >
                               <div className={`p-1.5 rounded-lg transition-all duration-300
                                 ${isActivePath(subItem.path)
@@ -2456,24 +2954,18 @@ export default function Navbar() {
                         }
                       `}
                       onClick={() => handleLinkClick(item.path)}
-                      style={{
-                        animationDelay: `${index * 80}ms`,
-                        animation: "slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards"
-                      }}
                     >
                       {item.name}
                     </div>
                   )}
                 </div>
               ))}
+              
+              {/* Mobile CTA Button - ONLY SHOW IN MOBILE MENU */}
               <div className="mt-6 pt-6 border-t border-slate-200">
                 <button 
                   className="w-full py-3 px-4 bg-slate-900 text-white rounded-xl font-medium transition-all duration-300 hover:bg-slate-700"
                   onClick={() => handleLinkClick("/get-started")}
-                  style={{
-                    animationDelay: `${navItems.length * 80}ms`,
-                    animation: "slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards"
-                  }}
                 >
                   Get Started
                 </button>
@@ -2487,16 +2979,6 @@ export default function Navbar() {
       <div className="h-16 lg:h-20" />
 
       <style jsx>{`
-        @keyframes slideUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
         @keyframes dropdownSlide {
           from {
             opacity: 0;
@@ -2517,13 +2999,7 @@ export default function Navbar() {
             transform: translateY(0) scale(1);
           }
         }
-        .group:hover .absolute {
-          transform: translateX(100%);
-        }
       `}</style>
     </>
   );
-
-      
-                    
 }

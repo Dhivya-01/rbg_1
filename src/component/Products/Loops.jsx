@@ -836,7 +836,7 @@ const MLloOpsContent = () => {
         {...fadeIn}
       >
         <div className="max-w-7xl mx-auto">
-          <CarouselStyle/>
+        
           <div className="text-center mb-16">
             <motion.h1 
               className="text-5xl md:text-6xl font-bold text-black mb-6"
@@ -886,7 +886,7 @@ const MLloOpsContent = () => {
         </Link>
             </motion.div>
           </div>
-
+  <CarouselStyle/>
           {/* Platform Overview */}
           <motion.div
             className="bg-gray-50 rounded-2xl p-8 md:p-12 mb-16"

@@ -736,6 +736,7 @@ export function Proof({
             {/* CTA */}
             <div className="text-center mt-12 pt-8 border-t">
               <Button 
+              
                 size="lg" 
                 className="group isolate"
                 asChild
