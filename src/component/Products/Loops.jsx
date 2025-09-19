@@ -440,7 +440,7 @@
 
 
 import { Link } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   CheckCircle,
@@ -470,7 +470,7 @@ import {
   Volume2,
   Maximize,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,  Pause 
 } from "lucide-react";
 import ExternalLink from '../ExternalLink';
 const containerVariants = {
@@ -597,111 +597,674 @@ const MLloOpsContent = () => {
       stats: "15% improvement monthly"
     },
   ];
+
+
+const CarouselStyle = () => {
+  const [currentVideo, setCurrentVideo] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const videoRef = useRef(null);
   
-   const CarouselStyle = () => {
-    const [currentVideo, setCurrentVideo] = useState(0);
-    const videos = [
-      { title: 'Platform Overview', duration: '2:45' },
-      { title: 'AI Processing Demo', duration: '3:20' },
-      { title: 'Human Collaboration', duration: '1:55' },
-      { title: 'Results Dashboard', duration: '2:10' }
-    ];
+   const videos = [
+    { 
+      title: 'Platform Overview', 
+      duration: '2:45',
+      url: 'https://res.cloudinary.com/datwcxi7y/video/upload/v1758272819/Platform_Overview_yhlgmf.mp4',
+      thumbnail: 'https://res.cloudinary.com/datwcxi7y/video/upload/v1758272819/Platform_Overview_yhlgmf.jpg' // Auto-generated thumbnail
+    },
+    { 
+      title: 'AI Processing Demo', 
+      duration: '3:20',
+      url: 'https://res.cloudinary.com/datwcxi7y/video/upload/v1758272821/AI_Processing_Demo_p9i4f9.mp4', // Same video for demo
+      thumbnail: 'https://res.cloudinary.com/datwcxi7y/video/upload/v1758272821/AI_Processing_Demo_p9i4f9.jpg'
+    },
+    { 
+      title: 'Human Collaboration', 
+      duration: '1:55',
+      url: 'https://res.cloudinary.com/datwcxi7y/video/upload/v1758272818/Human_Collaboration_tydwy9.mp4',
+      thumbnail: 'https://res.cloudinary.com/datwcxi7y/video/upload/v1758272818/Human_Collaboration_tydwy9.jpg'
+    },
+    { 
+      title: 'Results Dashboard', 
+      duration: '2:10',
+      url: 'https://res.cloudinary.com/datwcxi7y/video/upload/v1758272822/Results_Dashboard_dgt1iw.mp4', // Same video for demo
+      thumbnail: 'https://res.cloudinary.com/datwcxi7y/video/upload/v1758272822/Results_Dashboard_dgt1iw.jpg'
+    }
+  ];
 
-    return (
-      <motion.section
-        className="py-20 px-4 bg-gray-50"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        <div className="max-w-6xl mx-auto">
+  const handlePlayClick = async () => {
+    if (!videoRef.current) return;
+    
+    try {
+      setIsLoading(true);
+      
+      if (isPlaying) {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        // Ensure video is loaded
+        await videoRef.current.load();
+        await videoRef.current.play();
+        setIsPlaying(true);
+      }
+    } catch (error) {
+      console.error('Video play error:', error);
+      // Fallback: try to play without await
+      if (!isPlaying) {
+        videoRef.current.play().catch(e => console.error('Fallback play failed:', e));
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleVideoChange = (index) => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+    }
+    setCurrentVideo(index);
+    setIsPlaying(false);
+    setIsLoading(false);
+  };
+
+  // Video event handlers
+  const handleVideoPlay = () => {
+    setIsPlaying(true);
+    setIsLoading(false);
+  };
+
+  const handleVideoPause = () => {
+    setIsPlaying(false);
+  };
+
+  const handleVideoEnded = () => {
+    setIsPlaying(false);
+  };
+
+  const handleVideoLoadStart = () => {
+    setIsLoading(true);
+  };
+
+  const handleVideoCanPlay = () => {
+    setIsLoading(false);
+  };
+
+  return (
+    <motion.section
+      className="py-20 px-4 bg-gray-50"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+    >
+      <div className="max-w-5xl mx-auto">
+        <motion.div
+          className="text-center mb-12"
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-4xl font-bold text-black mb-4">
+            Explore Our Platform
+          </h2>
+          <p className="text-gray-600 text-lg">
+            Multiple perspectives, one powerful solution
+          </p>
+        </motion.div>
+
+        <div className="relative">
+          {/* Main video player */}
           <motion.div
-            className="text-center mb-12"
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8 }}
+            className="bg-black rounded-xl overflow-hidden mb-8 shadow-xl"
+            key={currentVideo}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
           >
-            <h2 className="text-4xl font-bold text-black mb-4">
-              Explore Our Platform
-            </h2>
-            <p className="text-gray-600 text-lg">
-              Multiple perspectives, one powerful solution
-            </p>
-          </motion.div>
+            <div className="relative aspect-video bg-gray-900">
+              {/* Video Element */}
+              <video
+                ref={videoRef}
+                className="w-full h-full object-cover"
+                poster={videos[currentVideo].thumbnail}
+                onPlay={handleVideoPlay}
+                onPause={handleVideoPause}
+                onEnded={handleVideoEnded}
+                onLoadStart={handleVideoLoadStart}
+                onCanPlay={handleVideoCanPlay}
+                playsInline
+                preload="metadata"
+                style={{ display: isPlaying ? 'block' : 'block' }}
+              >
+                <source src={videos[currentVideo].url} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
 
-          <div className="relative">
-            {/* Main video */}
-            <motion.div
-              className="bg-black rounded-3xl overflow-hidden mb-8"
-              key={currentVideo}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="aspect-video flex items-center justify-center">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-green-600 rounded-full p-6"
-                >
-                  <Play className="w-16 h-16 text-white ml-2" />
-                </motion.button>
-              </div>
-              
-              <div className="p-6 bg-gray-900 text-white">
-                <h3 className="text-xl font-semibold mb-2">{videos[currentVideo].title}</h3>
-                <div className="flex justify-between items-center">
+              {/* Large Play Button Overlay - Fixed Click Handler */}
+              <AnimatePresence>
+                {!isPlaying && (
+                  <motion.div 
+                    className="absolute inset-0 flex items-center justify-center bg-black/30 cursor-pointer z-10"
+                    onClick={handlePlayClick}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <motion.div
+                      className="relative flex items-center justify-center"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      {isLoading ? (
+                        <div className="bg-white/90 backdrop-blur-sm rounded-full p-4 shadow-xl">
+                          <div className="animate-spin rounded-full h-16 w-16 border-4 border-gray-300 border-t-gray-900"></div>
+                        </div>
+                      ) : (
+                        <div className="bg-white/90 backdrop-blur-sm rounded-full p-4 shadow-xl hover:bg-white transition-all duration-300">
+                          <Play className="w-8 h-8 text-gray-900 ml-2" fill="currentColor" />
+                        </div>
+                      )}
+                    </motion.div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* Video Controls Overlay (when playing) */}
+              <AnimatePresence>
+                {isPlaying && (
+                  <motion.div 
+                    className="absolute inset-0 bg-transparent cursor-pointer z-5"
+                    onClick={handlePlayClick}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                  />
+                )}
+              </AnimatePresence>
+            </div>
+            
+            {/* Video Info Bar */}
+            <div className="p-6 bg-gray-900 text-white">
+              <div className="flex justify-between items-center">
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">{videos[currentVideo].title}</h3>
                   <span className="text-gray-400">{videos[currentVideo].duration}</span>
-                  <div className="flex gap-4">
-                    <motion.button
-                      whileHover={{ scale: 1.1 }}
-                      onClick={() => setCurrentVideo(Math.max(0, currentVideo - 1))}
-                      disabled={currentVideo === 0}
-                      className="p-2 rounded-full bg-gray-800 disabled:opacity-50"
-                    >
-                      <ChevronLeft className="w-5 h-5" />
-                    </motion.button>
-                    <motion.button
-                      whileHover={{ scale: 1.1 }}
-                      onClick={() => setCurrentVideo(Math.min(videos.length - 1, currentVideo + 1))}
-                      disabled={currentVideo === videos.length - 1}
-                      className="p-2 rounded-full bg-gray-800 disabled:opacity-50"
-                    >
-                      <ChevronRight className="w-5 h-5" />
-                    </motion.button>
-                  </div>
+                </div>
+                <div className="flex gap-4 items-center">
+                  {/* Play/Pause Button */}
+                  <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={handlePlayClick}
+                    disabled={isLoading}
+                    className="p-3 rounded-full bg-gray-700 hover:bg-gray-600 transition-colors disabled:opacity-50"
+                  >
+                    {isLoading ? (
+                      <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent"></div>
+                    ) : isPlaying ? (
+                      <Pause className="w-5 h-5" fill="currentColor" />
+                    ) : (
+                      <Play className="w-5 h-5" fill="currentColor" />
+                    )}
+                  </motion.button>
+
+                  {/* Navigation Buttons */}
+                  <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    onClick={() => handleVideoChange(Math.max(0, currentVideo - 1))}
+                    disabled={currentVideo === 0}
+                    className="p-2 rounded-full bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-700 transition-colors"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </motion.button>
+                  <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    onClick={() => handleVideoChange(Math.min(videos.length - 1, currentVideo + 1))}
+                    disabled={currentVideo === videos.length - 1}
+                    className="p-2 rounded-full bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-700 transition-colors"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </motion.button>
                 </div>
               </div>
-            </motion.div>
-
-            {/* Video thumbnails */}
-            <div className="grid grid-cols-4 gap-4">
-              {videos.map((video, index) => (
-                <motion.div
-                  key={index}
-                  className={`cursor-pointer rounded-lg overflow-hidden ${
-                    index === currentVideo ? 'ring-4 ring-green-500' : ''
-                  }`}
-                  whileHover={{ scale: 1.05 }}
-                  onClick={() => setCurrentVideo(index)}
-                >
-                  <div className="aspect-video bg-gray-300 flex items-center justify-center">
-                    <Play className="w-6 h-6 text-gray-600" />
-                  </div>
-                  <div className="p-3 bg-white">
-                    <h4 className="text-sm font-medium text-gray-900 truncate">
-                      {video.title}
-                    </h4>
-                    <p className="text-xs text-gray-500">{video.duration}</p>
-                  </div>
-                </motion.div>
-              ))}
             </div>
+          </motion.div>
+
+          {/* Video thumbnails */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {videos.map((video, index) => (
+              <motion.div
+                key={index}
+                className={`cursor-pointer rounded-lg overflow-hidden transition-all duration-300 ${
+                  index === currentVideo 
+                    ? 'ring-4 ring-blue-500 shadow-lg' 
+                    : 'hover:ring-2 hover:ring-gray-300'
+                }`}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => handleVideoChange(index)}
+              >
+                <div className="relative aspect-video bg-gray-300">
+                  <img 
+                    src={video.thumbnail} 
+                    alt={video.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                    <div className={`rounded-full p-2 ${
+                      index === currentVideo ? 'bg-blue-500' : 'bg-white/80'
+                    }`}>
+                      <Play className={`w-4 h-4 ${
+                        index === currentVideo ? 'text-white' : 'text-gray-700'
+                      }`} fill="currentColor" />
+                    </div>
+                  </div>
+                  {index === currentVideo && (
+                    <div className="absolute top-2 left-2">
+                      <div className="bg-blue-500 text-white text-xs px-2 py-1 rounded-full">
+                        {isPlaying ? 'Now Playing' : 'Selected'}
+                      </div>
+                    </div>
+                  )}
+                </div>
+                <div className="p-3 bg-white">
+                  <h4 className="text-sm font-medium text-gray-900 truncate">
+                    {video.title}
+                  </h4>
+                  <p className="text-xs text-gray-500">{video.duration}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Video Progress Indicators */}
+          <div className="flex justify-center mt-6 space-x-2">
+            {videos.map((_, index) => (
+              <motion.button
+                key={index}
+                className={`w-3 h-3 rounded-full transition-colors ${
+                  index === currentVideo ? 'bg-blue-500' : 'bg-gray-300'
+                }`}
+                onClick={() => handleVideoChange(index)}
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.8 }}
+              />
+            ))}
           </div>
         </div>
-      </motion.section>
-    );
-  };
+      </div>
+    </motion.section>
+  );
+};
+
+
+
+
+
+//   const CarouselStyle = () => {
+//   const [currentVideo, setCurrentVideo] = useState(0);
+//   const [isPlaying, setIsPlaying] = useState(false);
+//   const videoRef = useRef(null);
+  
+  // const videos = [
+  //   { 
+  //     title: 'Platform Overview', 
+  //     duration: '2:45',
+  //     url: 'https://res.cloudinary.com/datwcxi7y/video/upload/v1758272819/Platform_Overview_yhlgmf.mp4',
+  //     thumbnail: 'https://res.cloudinary.com/datwcxi7y/video/upload/v1758272819/Platform_Overview_yhlgmf.jpg' // Auto-generated thumbnail
+  //   },
+  //   { 
+  //     title: 'AI Processing Demo', 
+  //     duration: '3:20',
+  //     url: 'https://res.cloudinary.com/datwcxi7y/video/upload/v1758272821/AI_Processing_Demo_p9i4f9.mp4', // Same video for demo
+  //     thumbnail: 'https://res.cloudinary.com/datwcxi7y/video/upload/v1758272821/AI_Processing_Demo_p9i4f9.jpg'
+  //   },
+  //   { 
+  //     title: 'Human Collaboration', 
+  //     duration: '1:55',
+  //     url: 'https://res.cloudinary.com/datwcxi7y/video/upload/v1758272818/Human_Collaboration_tydwy9.mp4',
+  //     thumbnail: 'https://res.cloudinary.com/datwcxi7y/video/upload/v1758272818/Human_Collaboration_tydwy9.jpg'
+  //   },
+  //   { 
+  //     title: 'Results Dashboard', 
+  //     duration: '2:10',
+  //     url: 'https://res.cloudinary.com/datwcxi7y/video/upload/v1758272822/Results_Dashboard_dgt1iw.mp4', // Same video for demo
+  //     thumbnail: 'https://res.cloudinary.com/datwcxi7y/video/upload/v1758272822/Results_Dashboard_dgt1iw.jpg'
+  //   }
+  // ];
+
+//   const handlePlayPause = () => {
+//     if (videoRef.current) {
+//       if (isPlaying) {
+//         videoRef.current.pause();
+//       } else {
+//         videoRef.current.play();
+//       }
+//       setIsPlaying(!isPlaying);
+//     }
+//   };
+
+//   const handleVideoChange = (index) => {
+//     setCurrentVideo(index);
+//     setIsPlaying(false);
+//     // Reset video when switching
+//     setTimeout(() => {
+//       if (videoRef.current) {
+//         videoRef.current.currentTime = 0;
+//       }
+//     }, 100);
+//   };
+
+//   useEffect(() => {
+//     // Reset playing state when video changes
+//     setIsPlaying(false);
+//   }, [currentVideo]);
+
+//   return (
+//     <motion.section
+//       className="py-20 px-4 bg-gray-50"
+//       initial={{ opacity: 0 }}
+//       animate={{ opacity: 1 }}
+//       transition={{ duration: 1 }}
+//     >
+//       <div className="max-w-6xl mx-auto">
+//         <motion.div
+//           className="text-center mb-12"
+//           initial={{ y: 30, opacity: 0 }}
+//           animate={{ y: 0, opacity: 1 }}
+//           transition={{ duration: 0.8 }}
+//         >
+//           <h2 className="text-4xl font-bold text-black mb-4">
+//             Explore Our Platform
+//           </h2>
+//           <p className="text-gray-600 text-lg">
+//             Multiple perspectives, one powerful solution
+//           </p>
+//         </motion.div>
+
+//         <div className="relative">
+//           {/* Main video player */}
+//           <motion.div
+//             className="bg-black rounded-3xl overflow-hidden mb-8 shadow-2xl"
+//             key={currentVideo}
+//             initial={{ opacity: 0, scale: 0.95 }}
+//             animate={{ opacity: 1, scale: 1 }}
+//             transition={{ duration: 0.5 }}
+//           >
+//             <div className="relative aspect-video">
+//               {/* Actual Video Element */}
+//               <video
+//                 ref={videoRef}
+//                 className="w-full h-full object-cover"
+//                 poster={videos[currentVideo].thumbnail}
+//                 onPlay={() => setIsPlaying(true)}
+//                 onPause={() => setIsPlaying(false)}
+//                 onEnded={() => setIsPlaying(false)}
+//                 controls={isPlaying}
+//                 playsInline
+//                 preload="metadata"
+//               >
+//                 <source src={videos[currentVideo].url} type="video/mp4" />
+//                 Your browser does not support the video tag.
+//               </video>
+
+//               {/* Custom Play Button Overlay */}
+//               {!isPlaying && (
+//                 <motion.div 
+//                   className="absolute inset-0 flex items-center justify-center bg-black/20 cursor-pointer"
+//                   onClick={handlePlayPause}
+//                   initial={{ opacity: 0 }}
+//                   animate={{ opacity: 1 }}
+//                   exit={{ opacity: 0 }}
+//                 >
+//                   <motion.button
+//                     whileHover={{ scale: 1.1 }}
+//                     whileTap={{ scale: 0.9 }}
+//                     className="bg-white/90 backdrop-blur-sm rounded-full p-6 shadow-2xl hover:bg-white transition-all duration-300"
+//                   >
+//                     <Play className="w-16 h-16 text-gray-900 ml-2" />
+//                   </motion.button>
+//                 </motion.div>
+//               )}
+
+//               {/* Video Loading State */}
+//               <motion.div 
+//                 className="absolute inset-0 flex items-center justify-center bg-gray-800"
+//                 initial={{ opacity: 1 }}
+//                 animate={{ opacity: 0 }}
+//                 transition={{ delay: 0.5, duration: 0.3 }}
+//               >
+//                 <div className="flex items-center space-x-2 text-white">
+//                   <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></div>
+//                   <span>Loading video...</span>
+//                 </div>
+//               </motion.div>
+//             </div>
+            
+//             {/* Video Info Bar */}
+//             <div className="p-6 bg-gray-900 text-white">
+//               <div className="flex justify-between items-center">
+//                 <div>
+//                   <h3 className="text-xl font-semibold mb-2">{videos[currentVideo].title}</h3>
+//                   <span className="text-gray-400">{videos[currentVideo].duration}</span>
+//                 </div>
+//                 <div className="flex gap-4 items-center">
+//                   {/* Play/Pause Button */}
+//                   <motion.button
+//                     whileHover={{ scale: 1.1 }}
+//                     whileTap={{ scale: 0.9 }}
+//                     onClick={handlePlayPause}
+//                     className="p-2 rounded-full bg-gray-700 hover:bg-gray-600 transition-colors"
+//                   >
+//                     {isPlaying ? (
+//                       <Pause className="w-5 h-5" />
+//                     ) : (
+//                       <Play className="w-5 h-5" />
+//                     )}
+//                   </motion.button>
+
+//                   {/* Navigation Buttons */}
+//                   <motion.button
+//                     whileHover={{ scale: 1.1 }}
+//                     onClick={() => handleVideoChange(Math.max(0, currentVideo - 1))}
+//                     disabled={currentVideo === 0}
+//                     className="p-2 rounded-full bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-700 transition-colors"
+//                   >
+//                     <ChevronLeft className="w-5 h-5" />
+//                   </motion.button>
+//                   <motion.button
+//                     whileHover={{ scale: 1.1 }}
+//                     onClick={() => handleVideoChange(Math.min(videos.length - 1, currentVideo + 1))}
+//                     disabled={currentVideo === videos.length - 1}
+//                     className="p-2 rounded-full bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-700 transition-colors"
+//                   >
+//                     <ChevronRight className="w-5 h-5" />
+//                   </motion.button>
+//                 </div>
+//               </div>
+//             </div>
+//           </motion.div>
+
+//           {/* Video thumbnails */}
+//           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+//             {videos.map((video, index) => (
+//               <motion.div
+//                 key={index}
+//                 className={`cursor-pointer rounded-lg overflow-hidden transition-all duration-300 ${
+//                   index === currentVideo 
+//                     ? 'ring-4 ring-blue-500 shadow-lg' 
+//                     : 'hover:ring-2 hover:ring-gray-300'
+//                 }`}
+//                 whileHover={{ scale: 1.02 }}
+//                 whileTap={{ scale: 0.98 }}
+//                 onClick={() => handleVideoChange(index)}
+//               >
+//                 <div className="relative aspect-video bg-gray-300">
+//                   {/* Video Thumbnail */}
+//                   <img 
+//                     src={video.thumbnail} 
+//                     alt={video.title}
+//                     className="w-full h-full object-cover"
+//                     onError={(e) => {
+//                       // Fallback to a placeholder if thumbnail fails
+//                       e.target.src = `https://via.placeholder.com/320x180/374151/ffffff?text=${encodeURIComponent(video.title)}`;
+//                     }}
+//                   />
+//                   {/* Play icon overlay */}
+//                   <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+//                     <div className={`rounded-full p-2 ${
+//                       index === currentVideo ? 'bg-blue-500' : 'bg-white/80'
+//                     }`}>
+//                       <Play className={`w-4 h-4 ${
+//                         index === currentVideo ? 'text-white' : 'text-gray-700'
+//                       }`} />
+//                     </div>
+//                   </div>
+//                   {/* Current video indicator */}
+//                   {index === currentVideo && (
+//                     <div className="absolute top-2 left-2">
+//                       <div className="bg-blue-500 text-white text-xs px-2 py-1 rounded-full">
+//                         Now Playing
+//                       </div>
+//                     </div>
+//                   )}
+//                 </div>
+//                 <div className="p-3 bg-white">
+//                   <h4 className="text-sm font-medium text-gray-900 truncate">
+//                     {video.title}
+//                   </h4>
+//                   <p className="text-xs text-gray-500">{video.duration}</p>
+//                 </div>
+//               </motion.div>
+//             ))}
+//           </div>
+
+//           {/* Video Progress Indicators */}
+//           <div className="flex justify-center mt-6 space-x-2">
+//             {videos.map((_, index) => (
+//               <motion.button
+//                 key={index}
+//                 className={`w-3 h-3 rounded-full transition-colors ${
+//                   index === currentVideo ? 'bg-blue-500' : 'bg-gray-300'
+//                 }`}
+//                 onClick={() => handleVideoChange(index)}
+//                 whileHover={{ scale: 1.2 }}
+//                 whileTap={{ scale: 0.8 }}
+//               />
+//             ))}
+//           </div>
+//         </div>
+//       </div>
+//     </motion.section>
+//   );
+// };
+
+
+
+  //  const CarouselStyle = () => {
+  //   const [currentVideo, setCurrentVideo] = useState(0);
+  //   const videos = [
+  //     { title: 'Platform Overview', duration: '2:45' },
+  //     { title: 'AI Processing Demo', duration: '3:20' },
+  //     { title: 'Human Collaboration', duration: '1:55' },
+  //     { title: 'Results Dashboard', duration: '2:10' }
+  //   ];
+
+  //   return (
+  //     <motion.section
+  //       className="py-20 px-4 bg-gray-50"
+  //       initial={{ opacity: 0 }}
+  //       animate={{ opacity: 1 }}
+  //       transition={{ duration: 1 }}
+  //     >
+  //       <div className="max-w-6xl mx-auto">
+  //         <motion.div
+  //           className="text-center mb-12"
+  //           initial={{ y: 30, opacity: 0 }}
+  //           animate={{ y: 0, opacity: 1 }}
+  //           transition={{ duration: 0.8 }}
+  //         >
+  //           <h2 className="text-4xl font-bold text-black mb-4">
+  //             Explore Our Platform
+  //           </h2>
+  //           <p className="text-gray-600 text-lg">
+  //             Multiple perspectives, one powerful solution
+  //           </p>
+  //         </motion.div>
+
+  //         <div className="relative">
+  //           {/* Main video */}
+  //           <motion.div
+  //             className="bg-black rounded-3xl overflow-hidden mb-8"
+  //             key={currentVideo}
+  //             initial={{ opacity: 0, scale: 0.95 }}
+  //             animate={{ opacity: 1, scale: 1 }}
+  //             transition={{ duration: 0.5 }}
+  //           >
+  //             <div className="aspect-video flex items-center justify-center">
+  //               <motion.button
+  //                 whileHover={{ scale: 1.05 }}
+  //                 whileTap={{ scale: 0.95 }}
+  //                 className="bg-green-600 rounded-full p-6"
+  //               >
+  //                 <Play className="w-16 h-16 text-white ml-2" />
+  //               </motion.button>
+  //             </div>
+              
+  //             <div className="p-6 bg-gray-900 text-white">
+  //               <h3 className="text-xl font-semibold mb-2">{videos[currentVideo].title}</h3>
+  //               <div className="flex justify-between items-center">
+  //                 <span className="text-gray-400">{videos[currentVideo].duration}</span>
+  //                 <div className="flex gap-4">
+  //                   <motion.button
+  //                     whileHover={{ scale: 1.1 }}
+  //                     onClick={() => setCurrentVideo(Math.max(0, currentVideo - 1))}
+  //                     disabled={currentVideo === 0}
+  //                     className="p-2 rounded-full bg-gray-800 disabled:opacity-50"
+  //                   >
+  //                     <ChevronLeft className="w-5 h-5" />
+  //                   </motion.button>
+  //                   <motion.button
+  //                     whileHover={{ scale: 1.1 }}
+  //                     onClick={() => setCurrentVideo(Math.min(videos.length - 1, currentVideo + 1))}
+  //                     disabled={currentVideo === videos.length - 1}
+  //                     className="p-2 rounded-full bg-gray-800 disabled:opacity-50"
+  //                   >
+  //                     <ChevronRight className="w-5 h-5" />
+  //                   </motion.button>
+  //                 </div>
+  //               </div>
+  //             </div>
+  //           </motion.div>
+
+  //           {/* Video thumbnails */}
+  //           <div className="grid grid-cols-4 gap-4">
+  //             {videos.map((video, index) => (
+  //               <motion.div
+  //                 key={index}
+  //                 className={`cursor-pointer rounded-lg overflow-hidden ${
+  //                   index === currentVideo ? 'ring-4 ring-green-500' : ''
+  //                 }`}
+  //                 whileHover={{ scale: 1.05 }}
+  //                 onClick={() => setCurrentVideo(index)}
+  //               >
+  //                 <div className="aspect-video bg-gray-300 flex items-center justify-center">
+  //                   <Play className="w-6 h-6 text-gray-600" />
+  //                 </div>
+  //                 <div className="p-3 bg-white">
+  //                   <h4 className="text-sm font-medium text-gray-900 truncate">
+  //                     {video.title}
+  //                   </h4>
+  //                   <p className="text-xs text-gray-500">{video.duration}</p>
+  //                 </div>
+  //               </motion.div>
+  //             ))}
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </motion.section>
+  //   );
+  // };
 
 
   const workflow = [
