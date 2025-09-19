@@ -4161,7 +4161,14 @@ const ServiceCard = ({ service, stackTitle, onServiceClick }) => {
       </div>
 
       {/* Main Content - Always Visible */}
-      <div className="relative p-6 z-10">
+      <div className="relative p-6 z-10"  onClick={(e) => {
+                  e.stopPropagation();
+                  onServiceClick({
+                    stackTitle,
+                    ...service,
+                    images: serviceImageData
+                  });
+                }}>
         {/* Service Preview Image */}
         <div className="mb-4 overflow-hidden rounded-lg bg-gray-50">
           <motion.img
