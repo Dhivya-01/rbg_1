@@ -565,7 +565,7 @@ const MLloOpsContent = () => {
     // },
     {
       role: "Process Controller",
-      icon: <Shield className="w-5 h-5" />,
+      icon: <Crown className="w-5 h-5" />,
       permissions: ["Add and assign users to specific projects", "Monitor the process and status dashboards" , "Oversee project progress and ensure quality control"],
       responsibilities: "A Process Controller can manage project workflows and team activities but cannot upload files directly. Their primary role is to:"
     },
@@ -1642,7 +1642,7 @@ const CarouselStyle = () => {
           
           <motion.div
             variants={containerVariants}
-            className="grid md:grid-cols-3 gap-8"
+            className="grid md:grid-cols-2 gap-8"
           >
             {userRoles.map((role, index) => (
               <motion.div
