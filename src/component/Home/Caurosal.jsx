@@ -1112,7 +1112,7 @@ export function Carouselflow() {
           >
             <div className="relative">
               <img
-                src="https://res.cloudinary.com/datwcxi7y/image/upload/v1756899013/gif_eeuzju.gif"
+                src="https://res.cloudinary.com/datwcxi7y/image/upload/v1758274580/GIF_V2_wqinhg.gif"
                 alt="hero"
                 height={720}
                 width={1400}

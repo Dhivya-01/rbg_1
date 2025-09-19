@@ -239,7 +239,7 @@
 //                       index === activeStep
 //                         ? 'bg-red-500 text-white'
 //                         : index < activeStep
-//                           ? 'bg-green-100 text-green-700'
+//                           ? 'bg-red-100 text-red-700'
 //                           : 'bg-red-100 text-red-600'
 //                     }`}>
 //                       {index < activeStep ? <Check className="w-3 h-3 lg:w-4 lg:h-4" /> : step.number}
@@ -605,7 +605,7 @@
 //                       index === activeStep
 //                         ? 'bg-red-500 text-white'
 //                         : index < activeStep
-//                           ? 'bg-green-100 text-green-700'
+//                           ? 'bg-red-100 text-red-700'
 //                           : 'bg-red-100 text-red-600'
 //                     }`}>
 //                       {index < activeStep ? <Check className="w-3 h-3 lg:w-4 lg:h-4" /> : step.number}
@@ -717,9 +717,8 @@
 // };
 
 // export default ResponsiveTimeline;
-
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronRight, Play, CheckCircle2, ArrowRight } from 'lucide-react';
+import { ChevronRight, Play, CheckCircle2, ArrowRight, Upload, FileText, Cpu, Database, Users, Shield, Download, FileSpreadsheet, Settings } from 'lucide-react';
 
 const ProcessFlow = () => {
   const [activeStep, setActiveStep] = useState(0);
@@ -730,68 +729,157 @@ const ProcessFlow = () => {
   const steps = [
     {
       id: 1,
-      title: "Discovery",
-      description: "Understanding your requirements and business goals",
-      detail: "We start by diving deep into your needs, analyzing your current situation, and identifying opportunities for improvement.",
-      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976847/upload_not_edited_fgus4l.svg"
+      title: "Upload",
+      description: "Upload any format: text, scanned PDFs, images, or audio",
+      detail: "Upload any format: text, scanned PDFs, images, or audio. Our platform accepts multiple file types and formats, ensuring seamless data ingestion from various sources.",
+      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976847/upload_not_edited_fgus4l.svg",
+      icon: Upload,
+      color: "red"
     },
     {
       id: 2,
-      title: "Planning",
-      description: "Strategic roadmap and technical architecture",
-      detail: "Creating a comprehensive plan with timelines, milestones, and technical specifications tailored to your objectives.",
-      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976821/Preprocessing_not_edited_dlyxso.svg"
+      title: "Preprocessing",
+      description: "Data standardization, compression, and cleaning for accurate processing",
+      detail: "The system standardizes, compresses, and cleans the data, preparing it for accurate processing. This crucial step ensures optimal quality and consistency across all input formats.",
+      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976821/Preprocessing_not_edited_dlyxso.svg",
+      icon: Settings,
+      color: "red"
     },
     {
       id: 3,
-      title: "Design",
-      description: "User experience and interface creation",
-      detail: "Crafting intuitive designs that prioritize user experience while maintaining aesthetic appeal and functionality.",
-      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976808/Transcription_not_edited_tclx0o.svg"
+      title: "Transcription",
+      description: "Converting images and audio into machine-readable text",
+      detail: "Files such as images or audio are converted into machine-readable text. Advanced AI models ensure high accuracy in text extraction and recognition across different languages and formats.",
+      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976808/Transcription_not_edited_tclx0o.svg",
+      icon: FileText,
+      color: "red"
     },
     {
       id: 4,
-      title: "Development",
-      description: "Building your application with modern technology",
-      detail: "Writing clean, scalable code using the latest technologies and best practices for optimal performance.",
-      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976775/extractror_not_edited_h96ppg.svg"
-    },
-    {
-      id: 5,
-      title: "Testing",
-      description: "Quality assurance and performance optimization",
-      detail: "Rigorous testing across multiple scenarios to ensure reliability, security, and seamless user experience.",
-      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756977051/human_in_loop_not_edited_e8s6bf.svg"
+      title: "Extraction",
+      description: "LLMs extract key data points and generate structured JSON output",
+      detail: "Large Language Models (LLMs) extract key data points and generate a structured JSON output. Our AI identifies, categorizes, and organizes information with industry-leading precision.",
+      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976775/extractror_not_edited_h96ppg.svg",
+      icon: Database,
+      color: "red"
     },
     {
       id: 6,
-      title: "Integration",
-      description: "Connecting systems and third-party services",
-      detail: "Seamlessly integrating with existing systems and external APIs to create a unified ecosystem.",
-      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976797/post_processingg_not_edited_ac9iy8.svg"
+      title: "Post-Processing",
+      description: "Validation, normalization, and compliance checks for accuracy",
+      detail: "The JSON output undergoes validation, normalization, and compliance checks to ensure accuracy and consistency. Final Result: A verified, structured JSON file processed by AI for speed and reviewed by humans for accuracy.",
+      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976797/post_processingg_not_edited_ac9iy8.svg",
+      icon: Shield,
+      color: "red"
     },
     {
+      id: 5,
+      title: "Human in the Loop",
+      description: "Human reviewers validate and correct low-confidence AI outputs",
+      detail: "When the AI has low confidence, the output is routed to a human reviewer. The reviewer validates and corrects the data, feeding improvements back into the system for continuous learning.",
+      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756977051/human_in_loop_not_edited_e8s6bf.svg",
+      icon: Users,
+      color: "red"
+    },
+    
+    {
       id: 7,
-      title: "Deployment",
-      description: "Launching your application to production",
-      detail: "Carefully orchestrated deployment with monitoring and rollback capabilities for a smooth launch.",
-      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1757073684/output_1_jfdihf.svg"
+      title: "Client Approval",
+      description: "Clients review and approve final output based on requirements",
+      detail: "Clients review the final output and choose whether to approve or reject it based on their requirements. This ensures complete satisfaction and quality control before final delivery.",
+      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1758276459/CLIENT_APPROVAL_IMAGE_jmcau4.svg",
+      icon: CheckCircle2,
+      color: "red"
     },
     {
       id: 8,
-      title: "Monitoring",
-      description: "Performance tracking and issue resolution",
-      detail: "Continuous monitoring of system health, performance metrics, and user behavior analytics.",
-      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1757073807/client_approval_1_iq7tnl.svg"
+      title: "Report Setup",
+      description: "Select project and date range to generate required reports",
+      detail: "Select the project and date range to generate the required report. Customize output parameters and configure report settings to match your specific business needs.",
+      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1757073564/Report_Setup_not_edited_m3io5y.svg",
+      icon: Settings,
+      color: "red"
     },
     {
       id: 9,
-      title: "Support",
-      description: "Ongoing maintenance and feature updates",
-      detail: "Long-term partnership with regular updates, maintenance, and feature enhancements as your business grows.",
-      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1757073564/Report_Setup_not_edited_m3io5y.svg"
+      title: "Report Download",
+      description: "Download final structured output in Excel format",
+      detail: "Once approved, reports can be downloaded in Excel format for analysis, sharing, or system integration. Download the final structured output in Excel format for analysis, sharing, and integration.",
+      image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1757073684/output_1_jfdihf.svg",
+      icon: Download,
+      color: "red"
     }
   ];
+
+  // Color mapping for different step types
+  const getColorClasses = (color, isActive = false) => {
+    const colors = {
+      blue: {
+        bg: isActive ? 'bg-blue-700' : 'bg-blue-50',
+        text: isActive ? 'text-white' : 'text-blue-600',
+        border: 'border-blue-200',
+        indicator: 'bg-blue-900',
+        hover: 'hover:bg-blue-300'
+      },
+      purple: {
+        bg: isActive ? 'bg-purple-700' : 'bg-purple-50',
+        text: isActive ? 'text-white' : 'text-purple-600',
+        border: 'border-purple-200',
+        indicator: 'bg-purple-900',
+        hover: 'hover:bg-purple-300'
+      },
+      indigo: {
+        bg: isActive ? 'bg-indigo-700' : 'bg-indigo-50',
+        text: isActive ? 'text-white' : 'text-indigo-600',
+        border: 'border-indigo-200',
+        indicator: 'bg-indigo-900',
+        hover: 'hover:bg-indigo-300'
+      },
+      cyan: {
+        bg: isActive ? 'bg-cyan-700' : 'bg-cyan-50',
+        text: isActive ? 'text-white' : 'text-cyan-600',
+        border: 'border-cyan-200',
+        indicator: 'bg-cyan-900',
+        hover: 'hover:bg-cyan-300'
+      },
+      orange: {
+        bg: isActive ? 'bg-orange-700' : 'bg-orange-50',
+        text: isActive ? 'text-white' : 'text-orange-600',
+        border: 'border-orange-200',
+        indicator: 'bg-orange-900',
+        hover: 'hover:bg-orange-300'
+      },
+      red: {
+        bg: isActive ? 'bg-red-600' : 'bg-red-50',
+        text: isActive ? 'text-white' : 'text-red-600',
+        border: 'border-red-200',
+        indicator: 'bg-red-900',
+        hover: 'hover:bg-red-300'
+      },
+      emerald: {
+        bg: isActive ? 'bg-emerald-700' : 'bg-emerald-50',
+        text: isActive ? 'text-white' : 'text-emerald-600',
+        border: 'border-emerald-200',
+        indicator: 'bg-emerald-900',
+        hover: 'hover:bg-emerald-300'
+      },
+      violet: {
+        bg: isActive ? 'bg-violet-700' : 'bg-violet-50',
+        text: isActive ? 'text-white' : 'text-violet-600',
+        border: 'border-violet-200',
+        indicator: 'bg-violet-900',
+        hover: 'hover:bg-violet-300'
+      },
+      teal: {
+        bg: isActive ? 'bg-teal-700' : 'bg-teal-50',
+        text: isActive ? 'text-white' : 'text-teal-600',
+        border: 'border-teal-200',
+        indicator: 'bg-teal-900',
+        hover: 'hover:bg-teal-300'
+      }
+    };
+    return colors[color] || colors.blue;
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -833,32 +921,35 @@ const ProcessFlow = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [steps.length]);
 
+  const currentStep = steps[activeStep];
+  const currentColors = getColorClasses(currentStep.color, true);
+
   return (
-    <div ref={containerRef} className="min-h-[400vh] bg-white relative">
+    <div ref={containerRef} className="min-h-[400vh] bg-gray-50 relative">
       
       {/* Sticky Header - visible only when component is active and before last step */}
       {isComponentVisible && activeStep < steps.length - 1 && (
-        <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-sm border-b border-red-100">
+        <div className="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200 shadow-sm">
           <div className="max-w-7xl mx-auto px-6 py-4">
             <div className="flex items-center justify-between">
-              <div>
-                <div className="inline-flex items-center gap-2 bg-red-50 rounded-full px-3 py-1 text-xs font-medium text-red-600">
-                  <Play size={12} />
+              <div className="flex items-center gap-4">
+                <div className={`inline-flex items-center gap-2 bg-red-50 rounded-full px-3 py-1 text-xs font-medium text-black`}>
+                  <currentStep.icon size={12} />
                   Step {activeStep + 1} of {steps.length}
                 </div>
-                <h3 className="text-sm font-bold text-red-900 mt-1">
-                  {steps[activeStep].title}
+                <h3 className="text-sm font-bold text-gray-900">
+                  {currentStep.title}
                 </h3>
               </div>
               <div className="flex-1 max-w-md mx-8">
-                <div className="h-1 bg-red-200 rounded-full overflow-hidden">
+                <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
                   <div 
-                    className="h-full bg-red-900 transition-all duration-300 ease-out rounded-full"
+                    className="h-full bg-red-500 transition-all duration-500 ease-out rounded-full"
                     style={{ width: `${((activeStep + 1) / steps.length) * 100}%` }}
                   />
                 </div>
               </div>
-              <div className="text-xs text-red-500 font-medium">
+              <div className="text-xs text-gray-600 font-medium">
                 {Math.round(((activeStep + 1) / steps.length) * 100)}%
               </div>
             </div>
@@ -870,22 +961,25 @@ const ProcessFlow = () => {
       {isComponentVisible && activeStep < steps.length - 1 && (
         <div className="fixed right-6 top-1/2 transform -translate-y-1/2 hidden lg:block z-30">
           <div className="flex flex-col items-center gap-2">
-            {steps.map((_, index) => (
-              <div
-                key={index}
-                className={`
-                  w-2 h-8 rounded-full transition-all duration-300 cursor-pointer
-                  ${index <= activeStep ? 'bg-red-900' : 'bg-red-200 hover:bg-red-300'}
-                `}
-                onClick={() => {
-                  // Optional: Allow users to click on indicators to jump to specific steps
-                  const targetProgress = index / (steps.length - 1);
-                  const containerHeight = containerRef.current?.scrollHeight || 0;
-                  const targetScroll = containerRef.current?.offsetTop + (targetProgress * containerHeight);
-                  window.scrollTo({ top: targetScroll, behavior: 'smooth' });
-                }}
-              />
-            ))}
+            {steps.map((step, index) => {
+              const stepColors = getColorClasses(step.color);
+              return (
+                <div
+                  key={index}
+                  className={`
+                    w-3 h-8 rounded-full transition-all duration-300 cursor-pointer shadow-sm
+                    ${index <= activeStep ? stepColors.indicator : 'bg-gray-300 hover:bg-gray-400'}
+                  `}
+                  onClick={() => {
+                    const targetProgress = index / (steps.length - 1);
+                    const containerHeight = containerRef.current?.scrollHeight || 0;
+                    const targetScroll = containerRef.current?.offsetTop + (targetProgress * containerHeight);
+                    window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+                  }}
+                  title={step.title}
+                />
+              );
+            })}
           </div>
         </div>
       )}
@@ -898,103 +992,368 @@ const ProcessFlow = () => {
             {/* Left Content */}
             <div className="space-y-8">
               <div>
-                <div className="inline-flex items-center gap-2 bg-red-50 rounded-full px-4 py-2 text-sm font-medium text-red-600 mb-6">
-                  <Play size={16} />
-                  Our Process
+                <div className={`inline-flex items-center gap-2 ${currentColors.bg} rounded-full px-4 py-2 text-sm font-medium ${currentColors.text} mb-6 shadow-sm`}>
+                  <currentStep.icon size={16} />
+                  MLloOps™ Process
                 </div>
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                  How We Build Your
-                  <span className="block bg-gradient-to-r from-gray-900 via-gray-700 to-gray-500 bg-clip-text text-transparent">
-                    Digital Success
+                  How We Transform Your
+                  <span className="block bg-red-500 bg-clip-text text-transparent">
+                    Unstructured Data
                   </span>
                 </h2>
               </div>
 
-              <div className="bg-gray-50 rounded-3xl p-8 border border-red-200 min-h-[300px] flex flex-col justify-center">
-                <div className="inline-flex items-center gap-2 bg-red-700 text-white rounded-full px-4 py-2 text-sm font-medium mb-6 w-fit">
-                  Step {activeStep + 1}
+              <div className={`bg-white rounded-3xl p-8 border ${currentColors.border} min-h-[320px] flex flex-col justify-center shadow-lg`}>
+                <div className={`inline-flex items-center gap-2 text-red-600 rounded-full px-4 py-2 text-sm font-medium mb-6 w-fit shadow-sm`}>
+                  <span className="font-semibold">Step {activeStep + 1}</span>
                   <ArrowRight size={16} />
                 </div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                  {steps[activeStep].title}
-                </h3>
-                <p className="text-gray-600 text-lg mb-6">
-                  {steps[activeStep].description}
-                </p>
+                
+                <div className="flex items-start gap-4 mb-4">
+                  <div className={`p-3 bg-white rounded-xl shadow-sm`}>
+                    <currentStep.icon className={`w-6 h-6 text-red-600`} />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+                      {currentStep.title}
+                    </h3>
+                    <p className="text-gray-600 text-lg mb-4 font-medium">
+                      {currentStep.description}
+                    </p>
+                  </div>
+                </div>
+                
                 <p className="text-gray-700 leading-relaxed">
-                  {steps[activeStep].detail}
+                  {currentStep.detail}
                 </p>
               </div>
 
               <div className="flex items-center gap-3 justify-center lg:justify-start">
-                {steps.map((_, index) => (
-                  <button
-                    key={index}
-                    className={`
-                      w-3 h-3 rounded-full transition-all duration-300
-                      ${index <= activeStep 
-                        ? 'bg-red-700 scale-110' 
-                        : 'bg-red-300 hover:bg-red-400'
-                      }
-                    `}
-                    onClick={() => setActiveStep(index)}
-                  />
-                ))}
+                {steps.map((step, index) => {
+                  const stepColors = getColorClasses(step.color);
+                  return (
+                    <button
+                      key={index}
+                      className={`
+                        w-4 h-4 rounded-full transition-all duration-300 shadow-sm
+                        ${index <= activeStep 
+                          ? `${stepColors.indicator} scale-110` 
+                          : `bg-gray-300 ${stepColors.hover}`
+                        }
+                      `}
+                      onClick={() => setActiveStep(index)}
+                      title={step.title}
+                    />
+                  );
+                })}
               </div>
             </div>
 
             {/* Right Image */}
             <div className="relative">
               <div className="relative aspect-square max-w-lg mx-auto">
-                <div className="absolute inset-0 rounded-3xl overflow-hidden bg-gray-50 border border-gray-200">
+                <div className={`absolute inset-0 rounded-3xl overflow-hidden bg-white border ${currentColors.border} shadow-xl`}>
                   <img
-                    src={steps[activeStep].image}
-                    alt={`${steps[activeStep].title} illustration`}
-                    className="w-full h-full object-contain p-8 transition-opacity duration-500"
+                    src={currentStep.image}
+                    alt={`${currentStep.title} illustration`}
+                    className="w-full h-full object-contain p-8 transition-all duration-500"
                     style={{ 
-                      filter: 'drop-shadow(0 10px 25px rgba(247, 16, 16, 0.1))'
+                      filter: `drop-shadow(0 10px 25px ${currentStep.color === 'orange' ? 'rgba(251, 146, 60, 0.15)' : 'rgba(59, 130, 246, 0.15)'})`
                     }}
                   />
                 </div>
+                
+                {/* Decorative background gradient */}
+                <div className={`absolute -inset-2 bg-gradient-to-br ${currentColors.bg} opacity-5 rounded-3xl -z-10`}></div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Mobile Navigation - visible only when component is active and before last step */}
-      {/* {isComponentVisible && activeStep < steps.length - 1 && (
-        <div className="lg:hidden fixed bottom-6 left-6 right-6 z-50">
-          <div className="bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-200 p-4">
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-sm font-medium text-gray-900">
-                {steps[activeStep].title}
-              </span>
-              <span className="text-xs text-gray-500">
-                {activeStep + 1}/{steps.length}
-              </span>
-            </div>
-            <div className="flex gap-1">
-              {steps.map((_, index) => (
-                <div
-                  key={index}
-                  className={`
-                    h-1 rounded-full flex-1 transition-all duration-300
-                    ${index <= activeStep ? 'bg-gray-900' : 'bg-gray-200'}
-                  `}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      )} */}
-
-      
     </div>
   );
 };
 
 export default ProcessFlow;
+
+// import React, { useState, useEffect, useRef } from 'react';
+// import { ChevronRight, Play, CheckCircle2, ArrowRight } from 'lucide-react';
+
+// const ProcessFlow = () => {
+//   const [activeStep, setActiveStep] = useState(0);
+//   const [scrollProgress, setScrollProgress] = useState(0);
+//   const [isComponentVisible, setIsComponentVisible] = useState(false);
+//   const containerRef = useRef(null);
+
+//   const steps = [
+//     {
+//       id: 1,
+//       title: "Discovery",
+//       description: "Understanding your requirements and business goals",
+//       detail: "We start by diving deep into your needs, analyzing your current situation, and identifying opportunities for improvement.",
+//       image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976847/upload_not_edited_fgus4l.svg"
+//     },
+//     {
+//       id: 2,
+//       title: "Planning",
+//       description: "Strategic roadmap and technical architecture",
+//       detail: "Creating a comprehensive plan with timelines, milestones, and technical specifications tailored to your objectives.",
+//       image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976821/Preprocessing_not_edited_dlyxso.svg"
+//     },
+//     {
+//       id: 3,
+//       title: "Design",
+//       description: "User experience and interface creation",
+//       detail: "Crafting intuitive designs that prioritize user experience while maintaining aesthetic appeal and functionality.",
+//       image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976808/Transcription_not_edited_tclx0o.svg"
+//     },
+//     {
+//       id: 4,
+//       title: "Development",
+//       description: "Building your application with modern technology",
+//       detail: "Writing clean, scalable code using the latest technologies and best practices for optimal performance.",
+//       image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976775/extractror_not_edited_h96ppg.svg"
+//     },
+//     {
+//       id: 5,
+//       title: "Testing",
+//       description: "Quality assurance and performance optimization",
+//       detail: "Rigorous testing across multiple scenarios to ensure reliability, security, and seamless user experience.",
+//       image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756977051/human_in_loop_not_edited_e8s6bf.svg"
+//     },
+//     {
+//       id: 6,
+//       title: "Integration",
+//       description: "Connecting systems and third-party services",
+//       detail: "Seamlessly integrating with existing systems and external APIs to create a unified ecosystem.",
+//       image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1756976797/post_processingg_not_edited_ac9iy8.svg"
+//     },
+//     {
+//       id: 7,
+//       title: "Deployment",
+//       description: "Launching your application to production",
+//       detail: "Carefully orchestrated deployment with monitoring and rollback capabilities for a smooth launch.",
+//       image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1757073684/output_1_jfdihf.svg"
+//     },
+//     {
+//       id: 8,
+//       title: "Monitoring",
+//       description: "Performance tracking and issue resolution",
+//       detail: "Continuous monitoring of system health, performance metrics, and user behavior analytics.",
+//       image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1757073807/client_approval_1_iq7tnl.svg"
+//     },
+//     {
+//       id: 9,
+//       title: "Support",
+//       description: "Ongoing maintenance and feature updates",
+//       detail: "Long-term partnership with regular updates, maintenance, and feature enhancements as your business grows.",
+//       image: "https://res.cloudinary.com/datwcxi7y/image/upload/v1757073564/Report_Setup_not_edited_m3io5y.svg"
+//     }
+//   ];
+
+//   useEffect(() => {
+//     const handleScroll = () => {
+//       if (!containerRef.current) return;
+
+//       const container = containerRef.current;
+//       const containerRect = container.getBoundingClientRect();
+//       const containerTop = containerRect.top;
+//       const containerHeight = containerRect.height;
+//       const windowHeight = window.innerHeight;
+
+//       // Check if the component is in viewport (visible)
+//       const isInViewport = containerTop < windowHeight && (containerTop + containerHeight) > 0;
+      
+//       // Only show scroll indicator when component is actually being scrolled through
+//       const isActivelyScrolling = containerTop <= 0 && (containerTop + containerHeight) > windowHeight;
+      
+//       setIsComponentVisible(isActivelyScrolling);
+
+//       if (!isInViewport) {
+//         return;
+//       }
+
+//       const scrollStart = containerTop;
+//       const scrollEnd = containerTop - windowHeight + containerHeight;
+//       const totalScrollDistance = Math.abs(scrollEnd - scrollStart);
+//       const currentScroll = Math.abs(scrollStart);
+      
+//       const progress = Math.min(Math.max(currentScroll / totalScrollDistance, 0), 1);
+//       setScrollProgress(progress);
+
+//       const stepIndex = Math.min(Math.floor(progress * steps.length), steps.length - 1);
+//       setActiveStep(stepIndex);
+//     };
+
+//     window.addEventListener('scroll', handleScroll);
+//     handleScroll(); // Initial call
+
+//     return () => window.removeEventListener('scroll', handleScroll);
+//   }, [steps.length]);
+
+//   return (
+//     <div ref={containerRef} className="min-h-[400vh] bg-white relative">
+      
+//       {/* Sticky Header - visible only when component is active and before last step */}
+//       {isComponentVisible && activeStep < steps.length - 1 && (
+//         <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-sm border-b border-red-100">
+//           <div className="max-w-7xl mx-auto px-6 py-4">
+//             <div className="flex items-center justify-between">
+//               <div>
+//                 <div className="inline-flex items-center gap-2 bg-red-50 rounded-full px-3 py-1 text-xs font-medium text-red-600">
+//                   <Play size={12} />
+//                   Step {activeStep + 1} of {steps.length}
+//                 </div>
+//                 <h3 className="text-sm font-bold text-red-900 mt-1">
+//                   {steps[activeStep].title}
+//                 </h3>
+//               </div>
+//               <div className="flex-1 max-w-md mx-8">
+//                 <div className="h-1 bg-red-200 rounded-full overflow-hidden">
+//                   <div 
+//                     className="h-full bg-red-900 transition-all duration-300 ease-out rounded-full"
+//                     style={{ width: `${((activeStep + 1) / steps.length) * 100}%` }}
+//                   />
+//                 </div>
+//               </div>
+//               <div className="text-xs text-red-500 font-medium">
+//                 {Math.round(((activeStep + 1) / steps.length) * 100)}%
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       )}
+
+//       {/* Scroll Indicator - Only visible when component is actively being scrolled and before last step */}
+//       {isComponentVisible && activeStep < steps.length - 1 && (
+//         <div className="fixed right-6 top-1/2 transform -translate-y-1/2 hidden lg:block z-30">
+//           <div className="flex flex-col items-center gap-2">
+//             {steps.map((_, index) => (
+//               <div
+//                 key={index}
+//                 className={`
+//                   w-2 h-8 rounded-full transition-all duration-300 cursor-pointer
+//                   ${index <= activeStep ? 'bg-red-900' : 'bg-red-200 hover:bg-red-300'}
+//                 `}
+//                 onClick={() => {
+//                   // Optional: Allow users to click on indicators to jump to specific steps
+//                   const targetProgress = index / (steps.length - 1);
+//                   const containerHeight = containerRef.current?.scrollHeight || 0;
+//                   const targetScroll = containerRef.current?.offsetTop + (targetProgress * containerHeight);
+//                   window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+//                 }}
+//               />
+//             ))}
+//           </div>
+//         </div>
+//       )}
+
+//       {/* Main Content */}
+//       <div className="sticky top-4 h-screen flex items-center">
+//         <div className="w-full max-w-7xl mx-auto px-6">
+//           <div className="grid lg:grid-cols-2 gap-12 items-center">
+            
+//             {/* Left Content */}
+//             <div className="space-y-8">
+//               <div>
+//                 <div className="inline-flex items-center gap-2 bg-red-50 rounded-full px-4 py-2 text-sm font-medium text-red-600 mb-6">
+//                   <Play size={16} />
+//                   Our Process
+//                 </div>
+//                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+//                   How We Build Your
+//                   <span className="block bg-gradient-to-r from-gray-900 via-gray-700 to-gray-500 bg-clip-text text-transparent">
+//                     Digital Success
+//                   </span>
+//                 </h2>
+//               </div>
+
+//               <div className="bg-gray-50 rounded-3xl p-8 border border-red-200 min-h-[300px] flex flex-col justify-center">
+//                 <div className="inline-flex items-center gap-2 bg-red-700 text-white rounded-full px-4 py-2 text-sm font-medium mb-6 w-fit">
+//                   Step {activeStep + 1}
+//                   <ArrowRight size={16} />
+//                 </div>
+//                 <h3 className="text-3xl font-bold text-gray-900 mb-4">
+//                   {steps[activeStep].title}
+//                 </h3>
+//                 <p className="text-gray-600 text-lg mb-6">
+//                   {steps[activeStep].description}
+//                 </p>
+//                 <p className="text-gray-700 leading-relaxed">
+//                   {steps[activeStep].detail}
+//                 </p>
+//               </div>
+
+//               <div className="flex items-center gap-3 justify-center lg:justify-start">
+//                 {steps.map((_, index) => (
+//                   <button
+//                     key={index}
+//                     className={`
+//                       w-3 h-3 rounded-full transition-all duration-300
+//                       ${index <= activeStep 
+//                         ? 'bg-red-700 scale-110' 
+//                         : 'bg-red-300 hover:bg-red-400'
+//                       }
+//                     `}
+//                     onClick={() => setActiveStep(index)}
+//                   />
+//                 ))}
+//               </div>
+//             </div>
+
+//             {/* Right Image */}
+//             <div className="relative">
+//               <div className="relative aspect-square max-w-lg mx-auto">
+//                 <div className="absolute inset-0 rounded-3xl overflow-hidden bg-gray-50 border border-gray-200">
+//                   <img
+//                     src={steps[activeStep].image}
+//                     alt={`${steps[activeStep].title} illustration`}
+//                     className="w-full h-full object-contain p-8 transition-opacity duration-500"
+//                     style={{ 
+//                       filter: 'drop-shadow(0 10px 25px rgba(247, 16, 16, 0.1))'
+//                     }}
+//                   />
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+
+//       {/* Mobile Navigation - visible only when component is active and before last step */}
+//       {/* {isComponentVisible && activeStep < steps.length - 1 && (
+//         <div className="lg:hidden fixed bottom-6 left-6 right-6 z-50">
+//           <div className="bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-200 p-4">
+//             <div className="flex items-center justify-between mb-3">
+//               <span className="text-sm font-medium text-gray-900">
+//                 {steps[activeStep].title}
+//               </span>
+//               <span className="text-xs text-gray-500">
+//                 {activeStep + 1}/{steps.length}
+//               </span>
+//             </div>
+//             <div className="flex gap-1">
+//               {steps.map((_, index) => (
+//                 <div
+//                   key={index}
+//                   className={`
+//                     h-1 rounded-full flex-1 transition-all duration-300
+//                     ${index <= activeStep ? 'bg-gray-900' : 'bg-gray-200'}
+//                   `}
+//                 />
+//               ))}
+//             </div>
+//           </div>
+//         </div>
+//       )} */}
+
+      
+//     </div>
+//   );
+// };
+
+// export default ProcessFlow;
 
 
 
@@ -1766,7 +2125,7 @@ export default ProcessFlow;
 //                         index === activeStep
 //                           ? 'bg-red-500 text-white'
 //                           : index < activeStep
-//                             ? 'bg-green-100 text-green-700'
+//                             ? 'bg-red-100 text-red-700'
 //                             : 'bg-red-100 text-red-600'
 //                       }`}>
 //                         {index < activeStep ? <Check className="w-4 h-4" /> : step.number}
@@ -2156,7 +2515,7 @@ export default ProcessFlow;
 //                         index === activeStep
 //                           ? 'bg-red-500 text-white'
 //                           : index < activeStep
-//                             ? 'bg-green-100 text-green-700'
+//                             ? 'bg-red-100 text-red-700'
 //                             : 'bg-red-100 text-red-600'
 //                       }`}>
 //                         {index < activeStep ? <Check className="w-3 h-3 lg:w-4 lg:h-4" /> : step.number}
@@ -3330,7 +3689,7 @@ export default ProcessFlow;
 //                       {/* Status Indicator */}
 //                       <div className={`absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
 //                         isCompleted 
-//                           ? 'bg-green-500 scale-100' 
+//                           ? 'bg-red-500 scale-100' 
 //                           : isActive 
 //                           ? 'bg-blue-500 scale-100 animate-pulse' 
 //                           : 'bg-slate-300 scale-0'
