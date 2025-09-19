@@ -557,23 +557,24 @@ const MLloOpsContent = () => {
 
   // User roles
   const userRoles = [
+    // {
+    //   role: "Super Admin",
+    //   icon: <Crown className="w-5 h-5" />,
+    //   permissions: ["Complete system oversight", "User management across all levels", "Global configuration settings", "Advanced analytics and reporting"],
+    //   responsibilities: "Manages the entire MLloOps ecosystem with full control over all operations and user access."
+    // },
     {
-      role: "Super Admin",
-      icon: <Crown className="w-5 h-5" />,
-      permissions: ["Complete system oversight", "User management across all levels", "Global configuration settings", "Advanced analytics and reporting"],
-      responsibilities: "Manages the entire MLloOps ecosystem with full control over all operations and user access."
-    },
-    {
-      role: "Admin",
+      role: "Process Controller",
       icon: <Shield className="w-5 h-5" />,
-      permissions: ["Project creation and management", "Team member oversight", "Quality control processes", "Client communication"],
-      responsibilities: "Oversees daily operations, manages project workflows, and ensures quality standards are met."
+      permissions: ["Add and assign users to specific projects", "Monitor the process and status dashboards" , "Oversee project progress and ensure quality control"],
+      responsibilities: "A Process Controller can manage project workflows and team activities but cannot upload files directly. Their primary role is to:"
     },
     {
-      role: "User",
+      role: "Data Validator",
       icon: <User className="w-5 h-5" />,
-      permissions: ["Data processing tasks", "Review and validation", "Basic reporting", "Team collaboration"],
-      responsibilities: "Performs data processing tasks, validates AI outputs, and collaborates on project completion."
+      permissions: ["Upload files in supported formats","Track the entire process (preprocessing, transcription, extraction, postprocessing)",
+"Validate outputs and collaborate on project tasks"],
+      responsibilities: "A Data Validator can handle the actual data workflows within MLloOps. Their primary role is to:"
     }
   ];
 
