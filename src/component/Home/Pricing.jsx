@@ -1215,7 +1215,7 @@ const UltraMinimalPricingUI = () => {
       return;
     }
 
-    if (EMAILJS_CONFIG.publicKey === 'QL2nASLUUeySGYSH1') {
+    if (EMAILJS_CONFIG.publicKey === '') {
       setSubmitError('Email service is not configured. Please contact support.');
       return;
     }
