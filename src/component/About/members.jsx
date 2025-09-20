@@ -78,12 +78,7 @@ export const practitioner = [
     role: "AI Senior Practitioner at RBG.AI",
     img: "https://i.ibb.co/cxZHZSR/Vishwa.jpg",
   },
-  {
-    name: "Jayakrishnan R",
-    role: "AI Practitioner at RBG.AI",
-    img: "https://i.ibb.co/Y3JRW5g/jay.jpg",
-  },
-
+  
   {
     name: "Dr. Joytish Lal",
     role: " Speech Expert  ",
@@ -146,11 +141,7 @@ export const practitioner = [
     role: "AI Intern",
     img: "https://i.ibb.co/JWzQTC39/aswathy.jpg",
   },
-  {
-    name: "Dinesh",
-    role: "AI Intern",
-    img: "https://i.ibb.co/Jj2brcN3/dinesh.png",
-  },
+ 
   
 ];
 export const policy = [

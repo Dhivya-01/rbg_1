@@ -1280,7 +1280,7 @@ const UltraMinimalPricingUI = () => {
       <div className="max-w-4xl mx-auto px-4 relative bg-background rounded-2xl p-4 md:p-12 border isolate">
         
         {/* Setup Instructions Banner - Configuration Complete */}
-        <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+        {/* <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
           <div className="flex items-start gap-2">
             <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
             <div className="text-sm">
@@ -1290,7 +1290,7 @@ const UltraMinimalPricingUI = () => {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
         
         {/* Compact Header */}
         <div className={`text-center mb-12 transition-all duration-700 ${
@@ -1309,7 +1309,7 @@ const UltraMinimalPricingUI = () => {
         <div className={`mb-10 transition-all duration-700 delay-200 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <div className="bg-gray-50 p-1 rounded-xl inline-flex w-full">
+          <div className="bg-gray-200 p-1 rounded-xl inline-flex w-full">
             {plans.map((plan, idx) => {
               const IconComponent = plan.icon;
               const isActive = selectedPlan === idx;

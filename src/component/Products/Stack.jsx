@@ -4093,9 +4093,9 @@ const serviceImages = {
     ]
   },
   "Vision Transcriber": {
-    preview: "https://res.cloudinary.com/datwcxi7y/image/upload/v1758196841/Image_to_Text_rseyyf.png",
+    preview: "https://res.cloudinary.com/datwcxi7y/image/upload/v1758368151/Vision_Transcriber_mfi17e.png",
     gallery: [
-      "https://res.cloudinary.com/datwcxi7y/image/upload/v1758196841/Image_to_Text_rseyyf.png",
+      "https://res.cloudinary.com/datwcxi7y/image/upload/v1758368151/Vision_Transcriber_mfi17e.png",
     ]
   },
   "Vision Classifier": {
