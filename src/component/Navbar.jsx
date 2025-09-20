@@ -2833,7 +2833,7 @@ export default function Navbar() {
               <div className="flex items-center">
                 <button 
                   className="group relative px-6 py-2.5  text-red-600 text-md font-medium rounded-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:text-white"
-                  onClick={() => handleLinkClick("/get-started")}
+                  onClick={() => handleLinkClick("/contact")}
                 >
                   <span className="relative z-10">Get Started</span>
                   <div className="absolute inset-0 bg-red-700 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
@@ -2965,7 +2965,7 @@ export default function Navbar() {
               <div className="mt-6 pt-6 border-t border-slate-200">
                 <button 
                   className="w-full py-3 px-4 bg-slate-900 text-white rounded-xl font-medium transition-all duration-300 hover:bg-slate-700"
-                  onClick={() => handleLinkClick("/get-started")}
+                  onClick={() => handleLinkClick("/contact")}
                 >
                   Get Started
                 </button>

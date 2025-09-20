@@ -4045,33 +4045,33 @@ const FloatingParticles = ({ count = 6 }) => {
 // Service Images Data - Replace with your actual Cloudinary URLs
 const serviceImages = {
   "Text Classifier": {
-    preview: "https://res.cloudinary.com/datwcxi7y/image/upload/v1758196840/Text_to_Text_aiziq5.png",
+    preview: "https://res.cloudinary.com/datwcxi7y/image/upload/v1758348885/Text_Classifier_vjct5m.png",
     gallery: [
-      "https://res.cloudinary.com/datwcxi7y/image/upload/v1758196840/Text_to_Text_aiziq5.png",
+      "https://res.cloudinary.com/datwcxi7y/image/upload/v1758348885/Text_Classifier_vjct5m.png",
     ]
   },
   "Text Extractor": {
-    preview: "https://res.cloudinary.com/datwcxi7y/image/upload/v1758196841/Image_to_Text_rseyyf.png",
+    preview: "https://res.cloudinary.com/datwcxi7y/image/upload/v1758348978/Text_Extractor_tvsoim.png",
     gallery: [
-      "https://res.cloudinary.com/datwcxi7y/image/upload/v1758196841/Image_to_Text_rseyyf.png",
+      "https://res.cloudinary.com/datwcxi7y/image/upload/v1758348978/Text_Extractor_tvsoim.png",
     ]
   },
   "Text Translator": {
-    preview: "https://res.cloudinary.com/datwcxi7y/image/upload/v1758196840/Text_to_Text_aiziq5.png",
+    preview: "https://res.cloudinary.com/datwcxi7y/image/upload/v1758349030/Text_Translator_m6cmif.png",
     gallery: [
-      "https://res.cloudinary.com/datwcxi7y/image/upload/v1758196840/Text_to_Text_aiziq5.png",
+      "https://res.cloudinary.com/datwcxi7y/image/upload/v1758349030/Text_Translator_m6cmif.png",
     ]
   },
   "Text Summarizer": {
-    preview: "https://res.cloudinary.com/datwcxi7y/image/upload/v1758196840/PDF_to_Text_lynske.png",
+    preview: "https://res.cloudinary.com/datwcxi7y/image/upload/v1758349084/Text_Summarizer_c5rjuw.png",
     gallery: [
-      "https://res.cloudinary.com/datwcxi7y/image/upload/v1758196840/PDF_to_Text_lynske.png",
+      "https://res.cloudinary.com/datwcxi7y/image/upload/v1758349084/Text_Summarizer_c5rjuw.png",
     ]
   },
   "Voice Transcriber": {
-    preview: "https://res.cloudinary.com/datwcxi7y/image/upload/v1758196838/Audio_to_Text_coxcbr.png",
+    preview: "https://res.cloudinary.com/datwcxi7y/image/upload/v1758349129/Voice_Transcriber_pe5obo.png",
     gallery: [
-      "https://res.cloudinary.com/datwcxi7y/image/upload/v1758196838/Audio_to_Text_coxcbr.png",
+      "https://res.cloudinary.com/datwcxi7y/image/upload/v1758349129/Voice_Transcriber_pe5obo.png",
     ]
   },
   "Voice Enhancer": {
@@ -4081,15 +4081,15 @@ const serviceImages = {
     ]
   },
   "Voice Recognition": {
-    preview: "https://res.cloudinary.com/datwcxi7y/image/upload/v1758196838/Audio_to_Text_coxcbr.png",
+    preview: "https://res.cloudinary.com/datwcxi7y/image/upload/v1758352016/Voice_Recognition_db0pxf.png",
     gallery: [
-      "https://res.cloudinary.com/datwcxi7y/image/upload/v1758196838/Audio_to_Text_coxcbr.png",
+      "https://res.cloudinary.com/datwcxi7y/image/upload/v1758352016/Voice_Recognition_db0pxf.png",
     ]
   },
   "Voice Synthesizer": {
-    preview: "https://res.cloudinary.com/datwcxi7y/image/upload/v1758196836/Text_to_Audio_ncjnck.png",
+    preview: "https://res.cloudinary.com/datwcxi7y/image/upload/v1758352115/Voice_Synthesizer_i2kjbc.png",
     gallery: [
-      "https://res.cloudinary.com/datwcxi7y/image/upload/v1758196836/Text_to_Audio_ncjnck.png",
+      "https://res.cloudinary.com/datwcxi7y/image/upload/v1758352115/Voice_Synthesizer_i2kjbc.png",
     ]
   },
   "Vision Transcriber": {
@@ -4099,21 +4099,21 @@ const serviceImages = {
     ]
   },
   "Vision Classifier": {
-    preview: "https://res.cloudinary.com/datwcxi7y/image/upload/v1758196841/Image_to_Text_rseyyf.png",
+    preview: "https://res.cloudinary.com/datwcxi7y/image/upload/v1758352186/Vision_Classifier_psxvaa.png",
     gallery: [
-      "https://res.cloudinary.com/datwcxi7y/image/upload/v1758196841/Image_to_Text_rseyyf.png",
+      "https://res.cloudinary.com/datwcxi7y/image/upload/v1758352186/Vision_Classifier_psxvaa.png",
     ]
   },
   "Vision Detector": {
-    preview: "https://res.cloudinary.com/datwcxi7y/image/upload/v1758196837/Image_to_Image_zwqk8b.png",
+    preview: "https://res.cloudinary.com/datwcxi7y/image/upload/v1758352229/Vision_Detector_fgeqqn.png",
     gallery: [
-      "https://res.cloudinary.com/datwcxi7y/image/upload/v1758196837/Image_to_Image_zwqk8b.png",
+      "https://res.cloudinary.com/datwcxi7y/image/upload/v1758352229/Vision_Detector_fgeqqn.png",
     ]
   },
   "Table Extractor": {
-    preview: "https://res.cloudinary.com/datwcxi7y/image/upload/v1758196884/Table_Extractor_preview.png",
+    preview: "https://res.cloudinary.com/datwcxi7y/image/upload/v1758352267/Table_Extractor_jcm8m0.png",
     gallery: [
-      "https://res.cloudinary.com/datwcxi7y/image/upload/v1758196884/Table_Extractor_preview.png",
+      "https://res.cloudinary.com/datwcxi7y/image/upload/v1758352267/Table_Extractor_jcm8m0.png",
     ]
   }
 };
