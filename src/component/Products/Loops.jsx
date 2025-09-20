@@ -586,11 +586,12 @@ const MLloOpsContent = () => {
       stats: "Process 1000+ files simultaneously"
     },
     {
-      icon: <Users className="w-8 h-8 text-green-600" />,
-      title: "Human Validation",
-      description: "Expert human reviewers ensure accuracy and provide domain-specific insights, creating a perfect balance between automation and expertise.",
-      stats: "99.2% accuracy with human oversight"
-    },
+  icon: <Users className="w-8 h-8 text-green-600" />,
+  title: "Human Validation",
+  description: "Expert human reviewers ensure accuracy and provide domain-specific insights, creating a perfect balance between automation and expertise.",
+  stats: "Accuracy > 95% with human oversight"
+},
+
     {
       icon: <RefreshCw className="w-8 h-8 text-green-600" />,
       title: "Continuous Improvement",
@@ -1350,12 +1351,13 @@ const CarouselStyle = () => {
       description: "Combines AI speed with human expertise for superior results",
       metric: "300% faster than traditional methods"
     },
-    {
-      icon: <CheckCircle className="w-6 h-6" />,
-      title: "Superior Accuracy",
-      description: "Human oversight ensures precision and domain-specific accuracy",
-      metric: "99.2% accuracy rate maintained"
-    },
+   {
+  icon: <CheckCircle className="w-6 h-6" />,
+  title: "Superior Accuracy",
+  description: "Human oversight ensures precision and domain-specific accuracy",
+  metric: "Accuracy > 95% consistently maintained"
+},
+
     {
       icon: <Globe className="w-6 h-6" />,
       title: "Flexible Deployment",
@@ -1473,8 +1475,9 @@ const CarouselStyle = () => {
                   <div className="text-gray-600">Files processed simultaneously</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-green-600">99.2%</div>
-                  <div className="text-gray-600">Accuracy rate maintained</div>
+                 <div className="text-3xl font-bold text-green-600">&gt;95%</div>
+<div className="text-gray-600">Accuracy consistently maintained</div>
+
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-green-600">300%</div>

@@ -4607,8 +4607,9 @@ const ServiceModal = ({ service, onClose }) => {
               <div className="text-xs text-gray-600 font-medium uppercase tracking-wide">Response</div>
             </div>
             <div className="bg-gradient-to-br from-gray-50 to-gray-150 p-3 md:p-4 rounded-lg border border-gray-200">
-              <div className="text-xl md:text-2xl font-bold text-gray-700 mb-1">99.9%</div>
-              <div className="text-xs text-gray-600 font-medium uppercase tracking-wide">Uptime</div>
+            <div className="text-xl md:text-2xl font-bold text-gray-700">&gt;95%</div>
+<div className="text-xs text-gray-600 font-medium uppercase tracking-wide">Uptime</div>
+
             </div>
             <div className="bg-gradient-to-br from-gray-100 to-gray-200 p-3 md:p-4 rounded-lg border border-gray-200">
               <div className="text-xl md:text-2xl font-bold text-gray-700 mb-1">24/7</div>
@@ -4692,7 +4693,7 @@ const Stack = () => {
       description: "Transform unstructured text data into actionable insights with comprehensive natural language processing APIs.",
       longDescription: "Advanced text processing capabilities including classification, extraction, translation, and summarization. Built with state-of-the-art transformer models for enterprise applications with multilingual support and custom domain adaptation.",
       stats: [
-        { label: "Accuracy", value: "98.5%" },
+        { label: "Accuracy", value: ">95%" },
         { label: "Languages", value: "100+" },
         { label: "Processed Daily", value: "1B+ docs" }
       ],
@@ -4701,25 +4702,25 @@ const Stack = () => {
           name: "Text Classifier",
           description: "Automatically organize and label text based on content, context, or tone with industry-leading accuracy.",
           features: ["Multi-class classification", "Sentiment analysis", "Intent recognition", "Custom taxonomy"],
-          metrics: { accuracy: "97.8%", speed: "< 200ms" }
+          metrics: { accuracy: ">95%", speed: "< 200ms" }
         },
         {
           name: "Text Extractor", 
           description: "Identify and extract key information such as entities, keywords, or specific fields from documents.",
           features: ["Named Entity Recognition", "Key phrase extraction", "Custom field extraction", "Multi-format support"],
-          metrics: { accuracy: "96.5%", speed: "< 150ms" }
+          metrics: { accuracy: ">95%", speed: "< 150ms" }
         },
         {
           name: "Text Translator",
           description: "Break language barriers with seamless translation across 100+ languages with cultural context awareness.",
           features: ["Real-time translation", "Batch processing", "Context preservation", "Domain-specific models"],
-          metrics: { accuracy: "94.2%", speed: "< 300ms" }
+          metrics: { accuracy: ">95%", speed: "< 300ms" }
         },
         {
           name: "Text Summarizer",
           description: "Condense long texts into concise, informative summaries while preserving key insights.",
           features: ["Extractive summarization", "Abstractive summarization", "Custom length control", "Multi-document synthesis"],
-          metrics: { accuracy: "92.1%", speed: "< 500ms" }
+          metrics: { accuracy: ">95%", speed: "< 500ms" }
         },
       ],
     },
@@ -4729,7 +4730,7 @@ const Stack = () => {
       description: "Unlock the power of voice data with advanced speech processing capabilities for transcription, enhancement, and synthesis.",
       longDescription: "Comprehensive voice processing suite enabling real-time transcription, speaker identification, voice enhancement, and synthesis. Optimized for enterprise applications with noise reduction, multi-language support, and custom voice models.",
       stats: [
-        { label: "Accuracy", value: "97.2%" },
+        { label: "Accuracy", value: ">95%" },
         { label: "Languages", value: "85+" },
         { label: "Hours Processed", value: "10M+" }
       ],
@@ -4738,25 +4739,25 @@ const Stack = () => {
           name: "Voice Transcriber",
           description: "Convert spoken language into text accurately and efficiently with real-time processing capabilities.",
           features: ["Real-time transcription", "Speaker identification", "Punctuation insertion", "Custom vocabulary"],
-          metrics: { accuracy: "97.2%", speed: "Real-time" }
+          metrics: { accuracy: ">95%", speed: "Real-time" }
         },
         {
           name: "Voice Enhancer",
           description: "Improve voice clarity by reducing background noise and refining audio quality using AI-powered filtering.",
           features: ["Noise reduction", "Echo cancellation", "Volume normalization", "Quality enhancement"],
-          metrics: { accuracy: "95.8%", speed: "< 1s" }
+          metrics: { accuracy: ">95%", speed: "< 1s" }
         },
         {
           name: "Voice Recognition",
           description: "Identify speakers and understand voice patterns for security, customer profiling, and personalization.",
           features: ["Speaker verification", "Voice biometrics", "Emotion detection", "Age/gender classification"],
-          metrics: { accuracy: "94.7%", speed: "< 2s" }
+          metrics: { accuracy: ">95%", speed: "< 2s" }
         },
         {
           name: "Voice Synthesizer",
           description: "Generate natural-sounding speech for text-to-speech applications with customizable voices.",
           features: ["Neural voice synthesis", "Custom voice cloning", "SSML support", "Multiple formats"],
-          metrics: { accuracy: "96.3%", speed: "< 2s" }
+          metrics: { accuracy: ">95%", speed: "< 2s" }
         },
       ],
     },
@@ -4766,7 +4767,7 @@ const Stack = () => {
       description: "Transform visual data into structured insights with computer vision APIs for detection, classification, and analysis.",
       longDescription: "Advanced computer vision capabilities for object detection, image classification, OCR, and visual content analysis. Supports real-time processing with high accuracy for enterprise applications across various industries.",
       stats: [
-        { label: "Accuracy", value: "99.1%" },
+       { label: "Accuracy", value: ">95%" },
         { label: "Formats", value: "20+" },
         { label: "Images Processed", value: "500M+" }
       ],
@@ -4775,25 +4776,25 @@ const Stack = () => {
           name: "Vision Transcriber",
           description: "Extract text and information from visual content, enhancing accessibility and archiving with OCR technology.",
           features: ["Multi-language OCR", "Handwriting recognition", "Document structure analysis", "PDF processing"],
-          metrics: { accuracy: "99.1%", speed: "< 1s" }
+          metrics: { accuracy: ">95%", speed: "< 1s" }
         },
         {
           name: "Vision Classifier",
           description: "Identify and categorize objects within images for streamlined image recognition and content management.",
           features: ["Object classification", "Scene understanding", "Custom categories", "Batch processing"],
-          metrics: { accuracy: "97.9%", speed: "< 400ms" }
+          metrics: { accuracy: ">95%", speed: "< 400ms" }
         },
         {
           name: "Vision Detector",
           description: "Detect objects, faces, or items in real-time for security, retail, and automation applications.",
           features: ["Real-time detection", "Multi-object tracking", "Face recognition", "Custom object training"],
-          metrics: { accuracy: "96.8%", speed: "< 100ms" }
+          metrics: { accuracy: ">95%", speed: "< 100ms" }
         },
         {
           name: "Table Extractor",
           description: "Convert tables and structured visual data into usable, digital formats with high precision.",
           features: ["Table structure recognition", "Cell content extraction", "Format preservation", "Excel export"],
-          metrics: { accuracy: "94.3%", speed: "< 2s" }
+          metrics: { accuracy: ">95%", speed: "< 2s" }
         },
       ],
     },
@@ -4824,7 +4825,7 @@ const Stack = () => {
 
   const metrics = [
     { label: "API Calls Processed", value: "10B+", icon: Database },
-    { label: "Uptime Guarantee", value: "99.9%", icon: Shield },
+    { label: "Uptime Guarantee", value: ">95%", icon: Shield },
     { label: "Average Response", value: "<200ms", icon: Zap },
     { label: "Enterprise Clients", value: "500+", icon: Users },
   ];
