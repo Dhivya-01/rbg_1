@@ -849,10 +849,7 @@ export function Carouselflow() {
   }, []);
 
   const openChatbot = () => {
-    console.log('Navigating to chatbot...');
-    // For artifact demo - replace with actual navigation
-    alert('Would navigate to chatbot');
-    // navigate('/chatbot');
+   
   };
 
   const contactOptions = [
@@ -869,7 +866,7 @@ export function Carouselflow() {
       icon: Mail, 
       label: "Email", 
       detail: "hi@mllops.com", 
-      action: () => window.open('mailto:hi@mllops.com'),
+      action: () => window.open('hr@rbg.ai'),
       color: 'from-green-500 to-green-600'
     },
     { 
@@ -1040,7 +1037,7 @@ export function Carouselflow() {
       </div> */}
 
       {/* Desktop Floating Contact Panel */}
-<div className="hidden md:flex fixed bottom-6 right-6 z-50">
+<div className="hidden md:flex fixed bottom-20 right-6 z-50">
   <div className="relative">
     {/* Contact options - Desktop */}
     <div

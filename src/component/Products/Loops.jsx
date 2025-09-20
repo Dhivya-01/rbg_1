@@ -534,9 +534,10 @@ const MLloOpsContent = () => {
       icon: <Mic className="w-6 h-6" />,
       processes: [
         { step: "Audio Analysis", description: "Sound quality and format detection" },
-        { step: "Speech Recognition", description: "Voice-to-text conversion" },
-        { step: "Content Extraction", description: "Key information identification" },
-        { step: "Format Conversion", description: "Multi-format output generation" }
+        { step: "Speech Recognition", description: "Convert speech into accurate text transcripts" },
+        { step: "Content Extraction", description: "Identify and extract key information from audio" },
+        { step: "Translation", description: "Translate transcripts into multiple languages with AI precision" },
+        { step: "Audio ↔ Text Conversion", description: "Convert audio to text and text to audio with multi-format accessibility" }
       ],
       outputs: ["Audio Files", "Text Transcripts", "Image Summaries", "JSON Data"],
       description: "Convert audio content into multiple accessible formats with AI precision"
@@ -546,9 +547,8 @@ const MLloOpsContent = () => {
       icon: <Image className="w-6 h-6" />,
       processes: [
         { step: "Computer Vision", description: "Visual content analysis" },
-        { step: "OCR Processing", description: "Text recognition from images" },
         { step: "Content Analysis", description: "Object and context identification" },
-        { step: "Data Structuring", description: "Information organization" }
+        { step: "Image Detection", description: "Detect if the image is AI-generated and classify it into the right category." }
       ],
       outputs: ["Extracted Text", "PDF Reports", "JSON Data", "Structured Tables"],
       description: "Extract and structure information from images using advanced computer vision"
