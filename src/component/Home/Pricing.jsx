@@ -1098,10 +1098,10 @@ const UltraMinimalPricingUI = () => {
           // Initialize EmailJS with the correct method
           if (window.emailjs) {
             window.emailjs.init(EMAILJS_CONFIG.publicKey);
-            console.log('EmailJS initialized successfully');
+ 
           }
         } catch (error) {
-          console.error('Failed to load EmailJS:', error);
+          console.error('Failed to load Email:', error);
         }
       }
     };
@@ -1127,7 +1127,7 @@ const UltraMinimalPricingUI = () => {
     try {
       // Check if EmailJS is properly loaded and configured
       if (!window.emailjs) {
-        throw new Error('EmailJS is not loaded');
+        throw new Error('Email is not loaded');
       }
 
       console.log('Sending user email with params:', templateParams);
@@ -1147,7 +1147,7 @@ const UltraMinimalPricingUI = () => {
       if (error.status === 400) {
         throw new Error('Email configuration error. Please check your template variables.');
       } else if (error.status === 403) {
-        throw new Error('EmailJS access denied. Please check your Public Key.');
+        throw new Error('Email access denied. Please check your Public Key.');
       } else {
         throw new Error(`Email sending failed: ${error.text || error.message || 'Unknown error'}`);
       }
@@ -1170,7 +1170,7 @@ const UltraMinimalPricingUI = () => {
 
     try {
       if (!window.emailjs) {
-        throw new Error('EmailJS is not loaded');
+        throw new Error('Email is not loaded');
       }
 
       console.log('Sending admin email with params:', templateParams);
@@ -1190,7 +1190,7 @@ const UltraMinimalPricingUI = () => {
       if (error.status === 400) {
         throw new Error('Email configuration error. Please check your template variables.');
       } else if (error.status === 403) {
-        throw new Error('EmailJS access denied. Please check your Public Key.');
+        throw new Error('Email access denied. Please check your Public Key.');
       } else {
         throw new Error(`Admin notification failed: ${error.text || error.message || 'Unknown error'}`);
       }
@@ -1215,7 +1215,7 @@ const UltraMinimalPricingUI = () => {
       return;
     }
 
-    if (EMAILJS_CONFIG.publicKey === 'YOUR_PUBLIC_KEY') {
+    if (EMAILJS_CONFIG.publicKey === 'QL2nASLUUeySGYSH1') {
       setSubmitError('Email service is not configured. Please contact support.');
       return;
     }
@@ -1284,9 +1284,9 @@ const UltraMinimalPricingUI = () => {
           <div className="flex items-start gap-2">
             <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
             <div className="text-sm">
-              <p className="font-medium text-green-900 mb-1">EmailJS Configuration Complete!</p>
+              <p className="font-medium text-green-900 mb-1">Email Configuration Complete!</p>
               <p className="text-green-700">
-                Your form is now connected to EmailJS and ready to send emails.
+                Your form is now connected to Email and ready to send emails.
               </p>
             </div>
           </div>
